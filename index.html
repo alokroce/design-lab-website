@@ -1,58 +1,1066 @@
-<!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="theme-color" content="#09090b"> <meta name="description" content="Design Lab helps architecture and interior design teams bring studio and site work into clearer focus."> <title>Design Lab — Design work, held together</title> <style> :root{color-scheme:dark;--ink:#09090b;--panel:#121114;--paper:#f5f1ed;--muted:#bbb3b2;--red:#a51c35;--red-bright:#dc3c50;--line:rgba(255,255,255,.16);--serif:Georgia,'Times New Roman',serif;--sans:Inter,'Segoe UI',Arial,sans-serif;--wrap:min(1200px,calc(100% - 48px))} *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid #ff9aa6;outline-offset:4px}.wrap{width:var(--wrap);margin-inline:auto}.eyebrow{display:flex;align-items:center;gap:12px;color:#f38a98;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.eyebrow:before{content:'';width:28px;height:1px;background:var(--red-bright)} .topbar{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:rgba(9,9,11,.92);backdrop-filter:blur(14px)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.wordmark{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.03em}.mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid #d94a5f;border-radius:50%;color:#ff9aa6;font:700 13px var(--serif)}.navlinks{display:flex;align-items:center;gap:30px}.navlinks a{text-decoration:none;color:#d1c9c7;font-size:.9rem}.navlinks a:hover{color:#fff}.nav-cta{padding:10px 16px;border:1px solid rgba(245,241,237,.5);border-radius:2px} .hero{position:relative;isolation:isolate;overflow:hidden;min-height:650px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 82% 60%,rgba(165,28,53,.22),transparent 42%),linear-gradient(135deg,#0b090b 0%,#100a0e 54%,#18090e 100%)}.hero:before{content:'';position:absolute;z-index:-1;inset:18px;border:1px solid rgba(191,39,61,.52);pointer-events:none}.hero:after{content:'';position:absolute;z-index:-1;width:min(52vw,650px);aspect-ratio:1;right:-5%;top:50%;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle,transparent 0 31%,rgba(191,39,61,.36) 31.2% 31.4%,transparent 31.7% 47%,rgba(191,39,61,.25) 47.2% 47.4%,transparent 47.7% 63%,rgba(191,39,61,.16) 63.2% 63.4%,transparent 63.8%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.75fr);align-items:center;gap:48px;padding-block:86px}.hero h1{max-width:760px;margin:24px 0;font-size:clamp(3.7rem,8vw,8rem);line-height:.91;letter-spacing:-.075em;font-weight:800}.hero h1 span{display:block;color:#ee5367}.hero-copy{max-width:590px;color:#d0c8c7;font-size:clamp(1rem,1.5vw,1.18rem)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.button{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border:1px solid transparent;border-radius:2px;text-decoration:none;font-size:.92rem;font-weight:700;transition:background .2s,border-color .2s,transform .2s}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--red);color:#fff}.button-primary:hover{background:#c52643}.button-secondary{border-color:rgba(255,255,255,.35);color:#fff}.button-secondary:hover{border-color:#fff;background:rgba(255,255,255,.06)} .hero-art{position:relative;min-height:390px;display:grid;place-items:center}.orb{position:absolute;width:min(100%,390px);aspect-ratio:1;border:1px solid rgba(220,60,80,.58);border-radius:50%;box-shadow:0 0 80px rgba(165,28,53,.16),inset 0 0 70px rgba(165,28,53,.1)}.orb:before,.orb:after{content:'';position:absolute;border:1px solid rgba(220,60,80,.32);border-radius:50%;inset:12%}.orb:after{inset:26%}.art-grid{position:relative;width:min(100%,370px);padding:24px;background:rgba(12,10,12,.8);border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 80px rgba(0,0,0,.4)}.art-label{display:flex;justify-content:space-between;padding-bottom:15px;border-bottom:1px solid var(--line);color:#e5dedd;font:700 .68rem var(--sans);letter-spacing:.16em}.art-plan{position:relative;min-height:210px;margin:20px 0;background:linear-gradient(90deg,transparent 49.7%,rgba(245,241,237,.1) 50%,transparent 50.3%),linear-gradient(transparent 49.7%,rgba(245,241,237,.1) 50%,transparent 50.3%),#171316;background-size:34px 34px}.plan-room{position:absolute;inset:15% 18% 18% 14%;border:1px solid #e86a7c}.plan-room:before,.plan-room:after{content:'';position:absolute;background:#e86a7c}.plan-room:before{width:42%;height:1px;left:0;top:48%}.plan-room:after{height:37%;width:1px;right:31%;top:0}.plan-point{position:absolute;right:26%;bottom:23%;width:13px;height:13px;border:1px solid #ff8797;border-radius:50%;box-shadow:0 0 20px #dc3c50}.art-foot{display:grid;grid-template-columns:1fr 1fr;gap:12px}.art-chip{padding:12px;border:1px solid var(--line);color:#d6cecc;font-size:.73rem}.art-chip b{display:block;color:#fff;font-size:.9rem;letter-spacing:.04em} .intro{padding:112px 0 104px}.intro-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:start}.intro h2,.section-head h2{margin:0;font-size:clamp(2.6rem,5.5vw,5.4rem);line-height:.98;letter-spacing:-.065em}.intro-text{max-width:690px;color:#c6bfbd;font-size:1.13rem}.intro-text strong{color:#fff}.rule{height:1px;margin-top:48px;background:linear-gradient(90deg,var(--red-bright),rgba(255,255,255,.08) 62%,transparent)} .spaces{padding:100px 0;background:#f1edeb;color:#171214}.section-head{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:48px}.section-head .eyebrow{color:#8e1e31}.section-head .eyebrow:before{background:#a51c35}.section-head p{max-width:390px;margin:0;color:#5d5554}.space-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.space-card{position:relative;min-height:390px;overflow:hidden;padding:34px;background:#171114;color:#f6f1ef}.space-card:nth-child(2){background:#231017}.space-card:after{content:'';position:absolute;width:270px;height:270px;right:-72px;bottom:-98px;border:1px solid rgba(237,84,104,.45);border-radius:50%;box-shadow:0 0 0 24px rgba(237,84,104,.045),0 0 0 50px rgba(237,84,104,.035)}.space-number{color:#ef7a8b;font:700 .74rem var(--sans);letter-spacing:.18em}.space-card h3{position:relative;z-index:1;margin:70px 0 14px;font-size:clamp(2.4rem,4vw,4.2rem);line-height:.95;letter-spacing:-.06em}.space-card p{position:relative;z-index:1;max-width:400px;margin:0;color:#d2c9c8}.space-tags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.space-tags span{padding:7px 10px;border:1px solid rgba(255,255,255,.24);color:#eee4e3;font-size:.74rem} .workflow{padding:106px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}.step{padding:26px 26px 0 0}.step+.step{padding-left:26px;border-left:1px solid var(--line)}.step-index{color:#ef7182;font:700 .8rem var(--sans);letter-spacing:.18em}.step h3{margin:17px 0 8px;font-size:1.5rem}.step p{max-width:330px;margin:0;color:#bdb5b4} .devices{padding:80px 0;background:#150c10;border-block:1px solid rgba(210,54,75,.38)}.devices-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}.devices h2{max-width:540px;margin:18px 0;font-size:clamp(2.8rem,5vw,5rem);line-height:.98;letter-spacing:-.065em}.devices p{max-width:530px;color:#d0c7c6}.device-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.device-list span{padding:9px 13px;border:1px solid rgba(255,255,255,.28);font-size:.84rem}.device-art{position:relative;min-height:240px;display:grid;place-items:center}.device-ring{width:min(100%,250px);aspect-ratio:1;border:1px solid rgba(237,84,104,.62);border-radius:50%;display:grid;place-items:center}.device-ring:before{content:'';position:absolute;width:180px;aspect-ratio:1;border:1px solid rgba(237,84,104,.3);border-radius:50%}.device-word{font:700 clamp(1rem,2vw,1.6rem) var(--sans);letter-spacing:.14em;text-align:center}.device-word span{display:block;margin-top:10px;color:#e36a7d;font:600 .72rem var(--sans);letter-spacing:.2em} .install{padding:112px 0}.install-card{position:relative;overflow:hidden;padding:clamp(30px,6vw,70px);border:1px solid rgba(222,66,86,.64);background:linear-gradient(120deg,#160b10,#100d10 66%,#1c0b11)}.install-card:after{content:'';position:absolute;width:360px;aspect-ratio:1;right:-100px;top:-180px;border:1px solid rgba(220,60,80,.25);border-radius:50%;box-shadow:0 0 0 35px rgba(220,60,80,.04),0 0 0 75px rgba(220,60,80,.03)}.install-card h2{position:relative;z-index:1;max-width:780px;margin:18px 0;font-size:clamp(2.6rem,5vw,5.2rem);line-height:.98;letter-spacing:-.065em}.install-card p{position:relative;z-index:1;max-width:620px;color:#c9c0bf}.soon{position:relative;z-index:1;display:inline-flex;margin-top:18px;padding:12px 16px;border:1px solid rgba(255,255,255,.32);color:#f2e9e8;font-size:.9rem} footer{border-top:1px solid var(--line);padding:25px 0 36px;color:#aaa1a0;font-size:.82rem}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-brand{color:#f3edeb;text-decoration:none;font-weight:800;letter-spacing:.08em} @media(max-width:850px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;gap:14px;padding-block:78px}.hero-art{min-height:360px}.hero:after{width:88vw;right:-28%;top:66%}.intro-grid,.devices-grid{grid-template-columns:1fr;gap:25px}.intro{padding:80px 0}.section-head{display:block}.section-head p{margin-top:20px}.space-card{min-height:360px}.device-art{min-height:200px}} @media(max-width:600px){:root{--wrap:min(100% - 36px,1200px)}.nav{min-height:66px}.navlinks{gap:12px}.navlinks a{font-size:.78rem}.navlinks a:first-child{display:none}.nav-cta{padding:9px 11px}.hero:before{inset:10px}.hero-grid{padding-block:66px}.hero h1{font-size:clamp(3.1rem,16vw,5rem)}.hero-art{min-height:310px}.art-grid{padding:16px}.art-plan{min-height:170px}.intro{padding:72px 0}.intro h2,.section-head h2{font-size:clamp(2.6rem,12vw,4.1rem)}.spaces,.workflow,.install{padding:76px 0}.space-grid{grid-template-columns:1fr}.space-card{min-height:330px;padding:27px}.space-card h3{margin-top:54px}.steps{grid-template-columns:1fr;margin-top:35px}.step,.step+.step{padding:22px 0;border-left:0}.step+.step{border-top:1px solid var(--line)}.devices{padding:68px 0}.install-card{padding:28px 22px}.footer-row{align-items:flex-start;flex-direction:column}} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}     /* DESIGN LAB MOTION PASS — scroll-triggered reveals inspired by the supplied template */
-    .topbar{position:sticky}.topbar:after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:var(--read-progress,0%);background:linear-gradient(90deg,#a51c35,#ef7182);pointer-events:none;transition:width .08s linear}
-    .hero.motion-active:after{animation:heroRingsOpen 1.45s cubic-bezier(.16,1,.3,1) both}
-    .hero .hero-arrive{opacity:0;transform:translateY(28px);animation:heroLift .82s cubic-bezier(.16,1,.3,1) var(--motion-delay,0ms) forwards}
-    .hero-art.hero-art-arrive{clip-path:circle(0% at 50% 50%);animation:heroAperture 1.5s cubic-bezier(.16,1,.3,1) .25s forwards}
-    .hero-art.hero-art-arrive .orb{animation:orbBloom 1.4s cubic-bezier(.16,1,.3,1) .2s both}
-    .motion-ready .motion-reveal{opacity:0;transform:translateY(30px);filter:blur(3px);transition:opacity .78s cubic-bezier(.16,1,.3,1) var(--motion-delay,0ms),transform .78s cubic-bezier(.16,1,.3,1) var(--motion-delay,0ms),filter .78s ease var(--motion-delay,0ms)}
-    .motion-ready .motion-reveal.is-in{opacity:1;transform:none;filter:none}
-    .motion-ready .space-card:after{opacity:0;transform:scale(.48) rotate(-14deg);transition:opacity .8s ease .2s,transform 1s cubic-bezier(.16,1,.3,1) .12s}
-    .motion-ready .space-card.is-in:after{opacity:1;transform:scale(1) rotate(0)}
-    .steps.motion-line{position:relative}
-    .steps.motion-line:before{content:'';position:absolute;left:0;right:0;top:-1px;height:2px;background:#e84d63;transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.16,1,.3,1) .18s}
-    .steps.motion-line.is-in:before{transform:scaleX(1)}
-    .motion-ready .device-ring{transform:scale(.68) rotate(-18deg);opacity:.4;transition:transform 1.1s cubic-bezier(.16,1,.3,1),opacity .9s ease}
-    .motion-ready .device-ring.is-in{transform:scale(1) rotate(0);opacity:1}
-    .motion-ready .device-ring:before{transform:scale(.72);transition:transform 1s cubic-bezier(.16,1,.3,1) .22s}
-    .motion-ready .device-ring.is-in:before{transform:scale(1)}
-    .motion-ready .install-card:after{opacity:.15;transform:scale(.5) rotate(-18deg);transition:transform 1.2s cubic-bezier(.16,1,.3,1) .2s,opacity .8s ease .2s}
-    .motion-ready .install-card.is-in:after{opacity:1;transform:scale(1) rotate(0)}
-    .button{position:relative;overflow:hidden}.button:after{content:'';position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transition:transform .55s cubic-bezier(.16,1,.3,1)}.button:hover:after,.button:focus-visible:after{transform:translateX(110%)}
-    @keyframes heroLift{to{opacity:1;transform:translateY(0)}}
-    @keyframes heroAperture{to{clip-path:circle(75% at 50% 50%)}}
-    @keyframes orbBloom{0%{opacity:0;transform:scale(.66)}70%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
-    @keyframes heroRingsOpen{0%{opacity:.15;transform:translateY(-50%) scale(.72)}100%{opacity:1;transform:translateY(-50%) scale(1)}}
-    @media(prefers-reduced-motion:reduce){.topbar:after{transition:none}.hero .hero-arrive,.hero-art.hero-art-arrive,.hero-art.hero-art-arrive .orb{animation:none!important;opacity:1;transform:none;clip-path:none}.motion-ready .motion-reveal,.motion-ready .space-card:after,.motion-ready .device-ring,.motion-ready .device-ring:before,.motion-ready .install-card:after,.steps.motion-line:before,.button:after{transition:none!important;animation:none!important;opacity:1;transform:none;filter:none;clip-path:none}}
-</style> </head> <body> <header class="topbar"> <nav class="nav wrap" aria-label="Main navigation"> <a class="wordmark" href="#top" aria-label="Design Lab home"><span class="mark" aria-hidden="true">DL</span><span>DESIGN LAB</span></a> <div class="navlinks"><a href="#spaces">The workspace</a><a href="#approach">How it works</a><a class="nav-cta" href="#install">Server installation</a></div> </nav> </header> <main id="top"> <section class="hero" aria-labelledby="hero-title"> <div class="hero-grid wrap"> <div> <p class="eyebrow">A working space for design practices</p> <h1 id="hero-title">Design work,<span>held together.</span></h1> <p class="hero-copy">Design Lab is being built for design teams — architects, interior designers, MEP designers, landscape designers and lighting designers — and the vendors and suppliers they work with. It brings studio conversations, project details, vendor coordination and site follow-through into one clearer system.</p> <div class="actions"><a class="button button-primary" href="#spaces">Explore Design Lab</a><a class="button button-secondary" href="#install">How installation will work</a></div> </div> <div class="hero-art" role="img" aria-label="Abstract architectural plan with connected studio and site labels"> <div class="orb" aria-hidden="true"></div> <div class="art-grid"><div class="art-label"><span>DESIGN LAB / FIELD NOTES</span><span>01 — 02</span></div><div class="art-plan" aria-hidden="true"><div class="plan-room"></div><span class="plan-point"></span></div><div class="art-foot"><div class="art-chip"><b>STUDIO</b>People · projects · follow-through</div><div class="art-chip"><b>SITE</b>Notes · drawings · progress</div></div></div> </div> </div> </section> <section class="intro wrap" aria-labelledby="intro-title"><div class="intro-grid"><p class="eyebrow">The work behind the work</p><div><h2 id="intro-title">One practice.<br>Many moving parts.</h2><p class="intro-text">A design project moves between people, decisions, drawings, materials and the site. <strong>Design Lab brings the day-to-day work into one clearer system</strong>, so teams can spend less energy searching for context and more time moving the project forward.</p><div class="rule" aria-hidden="true"></div></div></div></section> <section class="spaces" id="spaces" aria-labelledby="spaces-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Inside Design Lab</p><h2 id="spaces-title">Two sides of<br>the same work.</h2></div><p>Keep the studio organised and the project grounded in what is happening on site.</p></div><div class="space-grid"><article class="space-card"><span class="space-number">01 / OFFICE</span><h3>Make room<br>for the studio.</h3><p>Help the design team coordinate people, vendors, material follow-ups, studio administration and project files.</p><div class="space-tags"><span>Studio files</span><span>People &amp; vendors</span><span>Follow-ups</span></div></article><article class="space-card"><span class="space-number">02 / SITE</span><h3>Stay close<br>to the project.</h3><p>Bring client requirements, site notes, snags, drawings and next steps into view as work progresses.</p><div class="space-tags"><span>Project notes</span><span>Snags &amp; drawings</span><span>Progress</span></div></article></div></div></section> <section class="workflow" id="approach" aria-labelledby="workflow-title"><div class="wrap"><p class="eyebrow">A clearer rhythm</p><h2 class="section-head h2" id="workflow-title" style="display:block;margin:16px 0 0;font-size:clamp(2.7rem,5.3vw,5.2rem);line-height:.98;letter-spacing:-.065em">From first brief<br>to handover.</h2><div class="steps"><article class="step"><span class="step-index">01 / UNDERSTAND</span><h3>Keep the brief close.</h3><p>Capture what the client needs and what the team has agreed, so the project starts with shared context.</p></article><article class="step"><span class="step-index">02 / COORDINATE</span><h3>See what needs attention.</h3><p>Bring project actions, vendor follow-ups, site snags and drawings into a more visible rhythm.</p></article><article class="step"><span class="step-index">03 / DELIVER</span><h3>Carry decisions forward.</h3><p>Keep track of what has been decided and what still needs a person, a date or a next step.</p></article></div></div></section> <section class="devices" aria-labelledby="devices-title"><div class="devices-grid wrap"><div><p class="eyebrow">Where the work happens</p><h2 id="devices-title">Made for the studio. Ready for the site.</h2><p>Use the Design Lab app on the devices your team already carries between the office and the project.</p><div class="device-list"><span>iPad</span><span>Tablet</span><span>Phone</span></div></div><div class="device-art" role="img" aria-label="Design Lab mark surrounded by fine crimson rings"><div class="device-ring"><div class="device-word">DESIGN LAB<span>STUDIO ↔ SITE</span></div></div></div></div></section> <section class="install" id="install" aria-labelledby="install-title"><div class="wrap"><div class="install-card"><p class="eyebrow">Your server. Your workspace.</p><h2 id="install-title">Install Design Lab on your server.</h2><p>The plan is to provide the software for installation on your own server. The installation package and setup instructions are not available yet; this page will be updated when they are ready.</p><span class="soon">Server download · coming soon</span></div></div></section> </main> <footer><div class="footer-row wrap"><a class="footer-brand" href="#top">DESIGN LAB</a><span>Tools for the work behind thoughtful spaces.</span><span>Website preview · installation release in preparation</span></div></footer> </body> </html><script>
+<!doctype html>
+<!--
+  Design Lab website. Layout and motion from the free 8B event website template
+  (https://github.com/8bsite/event-website-template, MIT License, see LICENSE-template.txt),
+  recoloured and rewritten for Design Lab.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Lab — software for architects, interior designers and vendors</title>
+<meta name="description" content="Design Lab runs the studio office, records the site and connects architects with vendors. Software for India's design fraternity, on your own computer, with your phone as the screen at site.">
+<meta name="generator" content="8B Templates">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Design Lab — software for architects, interior designers and vendors">
+<meta property="og:description" content="Office, Site, Showroom and The Courtyard: one system for India's design fraternity.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#1a110b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%231a110b'%2F%3E%3Ccircle%20cx%3D'32'%20cy%3D'32'%20r%3D'12'%20fill%3D'%23ff6a13'%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="fonts/geist-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Geist"; font-weight: 300; font-display: swap; src: url(fonts/geist-sans-latin-300-normal.woff2) format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 400; font-display: swap; src: url(fonts/geist-sans-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-display: swap; src: url(fonts/geist-sans-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 600 700; font-display: swap; src: url(fonts/geist-sans-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400 500; font-display: swap; src: url(fonts/geist-mono-latin-400-normal.woff2) format("woff2"); }
+</style>
+<style data-8b-part="layers">
+@layer tokens, base, atoms, layout, sections, scenes;
+</style>
+<style data-8b-part="tokens">
+@layer tokens {
+:root {
+  /* Design Lab: the same dark brown and orange as the app */
+  --color-1: #1f150e;   /* deep brown page and slides */
+  --color-2: #a9450f;   /* burnt orange slides and photo tint */
+  --color-3: #f7f0e9;   /* warm white text, buttons, light slides */
+  --color-4: #120b07;   /* near-black brown slides */
+  --color-5: #ff8a3d;   /* hot orange edge, hover sweeps */
+  --color-6: #ff6a13;   /* Design Lab orange in gradients */
+  --font-1: "Geist", "Asta Sans Fallback", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --space-1: clamp(8px, 1vw, 14px);
+  --space-2: clamp(20px, 4vw, 64px);
+  --radius-1: 999px;
+}
+}
+</style>
+<style data-8b-part="base">
+@layer base {
+/* font fallbacks */
+@font-face { font-family: "Asta Sans Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"); font-weight: 550 799; size-adjust: 92%; ascent-override: 103.2%; descent-override: 26.1%; line-gap-override: 0%; }
+@font-face { font-family: "Asta Sans Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 100 549; size-adjust: 100.5%; ascent-override: 94.5%; descent-override: 23.9%; line-gap-override: 0%; }
+/* end font fallbacks */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--color-1); color: var(--color-3); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+body { margin: 0; background: var(--color-1); overflow-x: clip; }
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--color-3); outline-offset: 3px; }
+.slide--light :focus-visible { outline-color: var(--color-4); }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 30; padding: 10px 16px; background: var(--color-3); color: var(--color-4); }
+.skip:focus { top: 12px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+</style>
+<style data-8b-part="system">
+@layer atoms {
+.m-text { font-family: var(--font-1); font-size: clamp(15px, 1.05vw, 17px); font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; font-style: normal; }
+
+.m-text-2 {
+  font-family: var(--font-1); font-weight: 600; line-height: .84; letter-spacing: -.055em; text-transform: uppercase; font-style: normal;
+  --heat: 1;
+  color: var(--color-3);
+  background-image: linear-gradient(100deg, color-mix(in srgb, var(--color-3) 30%, transparent) 0 22%, var(--color-3) 44% 84%, color-mix(in srgb, var(--color-5) 60%, var(--color-3)) 97% 100%);
+  background-size: 300% 100%; background-position: calc(var(--heat) * 100%) 0;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.m-text-3 {
+  font-family: var(--font-1); font-size: clamp(40px, 6.2vw, 96px); font-weight: 500; line-height: .9; letter-spacing: -.045em; text-transform: uppercase; font-style: normal;
+  --heat: 1;
+  color: var(--color-3);
+  background-image: linear-gradient(100deg, color-mix(in srgb, var(--color-3) 30%, transparent) 0 22%, var(--color-3) 44% 84%, color-mix(in srgb, var(--color-5) 60%, var(--color-3)) 97% 100%);
+  background-size: 300% 100%; background-position: calc(var(--heat) * 100%) 0;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.m-text-4 { font-family: var(--font-1); font-size: 13px; font-weight: 500; line-height: 1.3; letter-spacing: .01em; text-transform: none; font-style: normal; }
+
+.m-text-5 { font-family: var(--font-1); font-size: clamp(17px, 1.45vw, 21px); font-weight: 400; line-height: 1.35; letter-spacing: -.005em; text-transform: none; font-style: normal; }
+
+.m-text-6 { font-family: var(--font-1); font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.05; letter-spacing: -.02em; text-transform: none; font-style: normal; }
+
+.m-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px;
+  border: 0; border-radius: var(--radius-1); cursor: pointer; text-decoration: none;
+  font-family: var(--font-1); font-size: 15px; font-weight: 500; line-height: 1; letter-spacing: .005em;
+  color: var(--color-1);
+  background-color: var(--color-3);
+}
+.m-btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0; pointer-events: none;
+  background-image: linear-gradient(100deg, var(--color-3) 0 40%, color-mix(in srgb, var(--color-5) 40%, var(--color-3)) 70%, var(--color-3) 100%);
+  background-size: 250% 100%; background-position: 0 0;
+  transition: background-position .6s cubic-bezier(.2,.7,.2,1), opacity .2s; }
+.m-btn::after { content: ""; position: absolute; inset: -9px; border: 1px solid currentColor; border-radius: inherit; opacity: 0; transition: inset .45s cubic-bezier(.2,.7,.2,1), opacity .3s; pointer-events: none; }
+.m-btn > .m-btn__label { position: relative; }
+@media (hover: hover) {
+  .m-btn:hover::before { opacity: 1; background-position: 100% 0; }
+  .m-btn:hover::after { inset: -4px; opacity: .55; }
+}
+.m-btn::after { color: var(--color-3); }
+
+.m-btn-2 {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px;
+  border: 1px solid currentColor; border-radius: var(--radius-1); cursor: pointer; text-decoration: none;
+  font-family: var(--font-1); font-size: 15px; font-weight: 500; line-height: 1; letter-spacing: .005em;
+  color: var(--color-3); background-color: transparent;
+}
+.m-btn-2::before { content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0; pointer-events: none;
+  background-image: linear-gradient(100deg, transparent 0 40%, color-mix(in srgb, var(--color-3) 22%, transparent) 70%, color-mix(in srgb, var(--color-3) 14%, transparent) 100%);
+  background-size: 250% 100%; background-position: 0 0;
+  transition: background-position .6s cubic-bezier(.2,.7,.2,1), opacity .2s; }
+.m-btn-2::after { content: ""; position: absolute; inset: -9px; border: 1px solid currentColor; border-radius: inherit; opacity: 0; transition: inset .45s cubic-bezier(.2,.7,.2,1), opacity .3s; pointer-events: none; }
+.m-btn-2 > .m-btn-2__label { position: relative; }
+@media (hover: hover) {
+  .m-btn-2:hover::before { opacity: 1; background-position: 100% 0; }
+  .m-btn-2:hover::after { inset: -4px; opacity: .55; }
+}
+
+.m-link {
+  color: inherit; text-decoration: none;
+  background-image: linear-gradient(90deg, currentColor 0 50%, var(--color-5) 70%, currentColor 90%);
+  background-size: 300% 1px; background-repeat: no-repeat; background-position: 0 100%;
+  padding-bottom: 2px;
+  transition: background-position .7s cubic-bezier(.2,.7,.2,1);
+}
+@media (hover: hover) { .m-link:hover { background-position: 100% 100%; } }
+
+.m-iconbtn {
+  position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid currentColor; border-radius: 50%; background: transparent; color: var(--color-3); cursor: pointer;
+}
+.m-iconbtn::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: currentColor; opacity: .18; scale: 0; transition: scale .4s cubic-bezier(.2,.7,.2,1); }
+.m-iconbtn svg { position: relative; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+@media (hover: hover) { .m-iconbtn:hover::before { scale: 1; } }
+
+.m-ring {
+  display: grid; place-content: center; gap: 4px; aspect-ratio: 1; border-radius: 50%; text-align: center;
+  border: 1px solid color-mix(in srgb, var(--color-3) 65%, transparent);
+  color: var(--color-3);
+}
+.m-ring > .m-ring__time { font-family: var(--font-1); font-size: clamp(16px, 1.45vw, 21px); font-weight: 500; line-height: 1; letter-spacing: -.01em; }
+.m-ring > .m-ring__label { font-family: var(--font-1); font-size: clamp(11px, .95vw, 13px); font-weight: 400; line-height: 1.2; letter-spacing: 0; padding-inline: 10px; }
+
+.m-surface {
+  position: relative; color: var(--color-3);
+  background: color-mix(in srgb, var(--color-4) 32%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-3) 24%, transparent);
+}
+.m-surface::before, .m-surface::after { content: ""; position: absolute; background: color-mix(in srgb, var(--color-3) 80%, transparent); pointer-events: none; }
+.m-surface::before { top: 18px; right: 4px; width: 30px; height: 1px; }
+.m-surface::after { top: 4px; right: 18px; width: 1px; height: 30px; }
+
+.m-badge {
+  display: inline-flex; align-items: center; min-height: 26px; padding: 0 11px; border: 1px solid currentColor; border-radius: var(--radius-1);
+  font-family: var(--font-1); font-size: 12px; font-weight: 500; line-height: 1; letter-spacing: .02em; text-transform: none; font-style: normal; white-space: nowrap;
+}
+}
+</style>
+<style data-8b-part="layout">
+@layer layout {
+.slide { position: relative; margin: 0 var(--space-1) var(--space-1); }
+.slide--light { background: var(--color-3); color: var(--color-4); }
+.wrap { padding-inline: var(--space-2); }
+}
+</style>
+<style data-8b-part="section:navigation">
+@layer sections {
+#navigation {
+  position: fixed; inset: 0 0 auto; z-index: 20; height: 60px; display: flex; align-items: center; gap: 28px;
+  padding: 0 calc(var(--space-1) + var(--space-2) - 8px);
+  background: var(--color-1); color: var(--color-3);
+  transition: translate .45s cubic-bezier(.2,.7,.2,1);
+}
+#navigation.is-hidden { translate: 0 -100%; }
+#navigation .nav__logo { display: inline-flex; align-items: baseline; gap: 8px; text-decoration: none; font-weight: 600; font-size: 21px; letter-spacing: -.04em; }
+#navigation .nav__logo span:last-child { font-weight: 400; font-size: 17px; letter-spacing: 0; opacity: .8; }
+#navigation .nav__links { display: flex; gap: 26px; margin-left: auto; }
+#navigation .nav__links a { font-size: 14px; }
+#navigation .nav__cta { min-height: 40px; padding: 0 18px; font-size: 14px; }
+#navigation .nav__menu { display: none; }
+@media (max-width: 860px) {
+  #navigation { height: 56px; gap: 12px; padding: 0 calc(var(--space-1) + 12px); }
+  #navigation .nav__links { display: none; }
+  #navigation .nav__cta { margin-left: auto; }
+  #navigation .nav__menu { display: inline-grid; }
+}
+#navigation .menu { position: fixed; inset: 0; z-index: 40; background: var(--color-1); color: var(--color-3); padding: 14px calc(var(--space-1) + 12px) 32px; display: flex; flex-direction: column; }
+#navigation .menu[hidden] { display: none; }
+#navigation .menu .menu__close { align-self: flex-end; }
+#navigation .menu ul { margin-top: 6vh; display: grid; gap: 4px; }
+#navigation .menu ul a { font-size: clamp(34px, 11vw, 56px); font-weight: 500; letter-spacing: -.045em; text-transform: uppercase; text-decoration: none; line-height: 1.05; }
+#navigation .menu .menu__meta { margin-top: auto; }
+}
+</style>
+<style data-8b-part="section:opening">
+@layer sections {
+#opening { margin-top: 0; overflow: clip; background: var(--color-4); }
+#opening .op-stage { position: sticky; top: 0; height: 100svh; margin-bottom: -100svh; overflow: hidden; }
+#opening .op-intro, #opening .op-drift, #opening .op-zoom { position: absolute; inset: 0; }
+#opening .op-zoom { transform-origin: 50% 45%; }
+#opening .op-drift { inset: -5%; }
+#opening .op-photo { width: 100%; height: 100%; object-fit: cover; object-position: 52% 30%; }
+#opening .op-shade { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-4) 50%, transparent) 0%, transparent 34%, transparent 58%, color-mix(in srgb, var(--color-4) 62%, transparent) 100%); }
+#opening .op-one { position: relative; height: 100svh; min-height: 560px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr auto auto; column-gap: 20px; padding: calc(60px + 5svh) var(--space-2) 5svh; }
+#opening .op-upper { grid-column: 8 / -1; grid-row: 1; display: grid; gap: 22px; }
+#opening .op-meta { display: flex; gap: 40px; }
+#opening .op-meta dd { font-size: 15px; font-weight: 500; }
+#opening .op-meta dt { opacity: .78; }
+#opening .op-title { grid-column: 1 / -1; grid-row: 3; font-size: min(17vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (var(--len) * .52))); margin-left: -.04em; white-space: nowrap;
+  background-image: linear-gradient(95deg, color-mix(in srgb, var(--color-6) 88%, transparent) 0%, color-mix(in srgb, var(--color-3) 94%, transparent) 26%, var(--color-3) 46%, color-mix(in srgb, var(--color-5) 92%, transparent) 70%, color-mix(in srgb, var(--color-2) 90%, transparent) 100%);
+  background-size: 180% 100%; background-position: 20% 0; }
+#opening .op-word { display: inline-block; }
+#opening .op-lower { grid-column: 1 / -1; grid-row: 4; display: grid; grid-template-columns: subgrid; align-items: end; margin-top: 18px; }
+#opening .op-tag { grid-column: 8 / -1; grid-row: 1; max-width: 32ch; }
+#opening .op-actions { grid-column: 1 / 7; grid-row: 1; display: flex; flex-wrap: wrap; gap: 14px; }
+#opening .op-two { position: relative; height: 100svh; min-height: 560px; --d: min(12.4vw, 25svh); }
+#opening .op-veil { position: absolute; left: 0; top: -100%; width: 100%; height: 200%; pointer-events: none; --grow: 0; }
+#opening .op-veil__fill { fill: var(--color-1); }
+#opening .op-veil__base { color: var(--color-3); }
+#opening .op-veil__hole, #opening .op-veil__lid { color: var(--color-4); }
+#opening .op-veil__hole { cx: calc(6% + var(--i) * 11%); cy: calc(50% + 63% / 2); r: calc(var(--d) / 2 - 1px + var(--grow) * 180vmax); }
+#opening .op-two__head { position: relative; padding: calc(60px + 7svh) var(--space-2) 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; align-items: end; }
+#opening .op-two__head h2 { grid-column: 1 / 7; }
+#opening .op-two__note { grid-column: 8 / -1; max-width: 38ch; display: grid; gap: 14px; justify-items: start; }
+#opening .op-rings { position: absolute; inset: 0; }
+#opening .op-rings .m-ring { position: absolute; left: calc(6% + var(--i) * 11%); top: 63%; width: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); background: radial-gradient(circle, color-mix(in srgb, var(--color-4) 34%, transparent) 0 40%, transparent 70%); }
+#opening .op-two__foot { position: absolute; left: var(--space-2); right: var(--space-2); bottom: 6svh; display: flex; justify-content: space-between; gap: 20px; }
+@media (max-width: 860px) {
+  #opening .op-one { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr auto auto; padding: calc(56px + 3svh) var(--space-2) 4svh; }
+  #opening .op-upper, #opening .op-title, #opening .op-lower, #opening .op-tag, #opening .op-actions { grid-column: 1; }
+  #opening .op-upper { gap: 14px; }
+  #opening .op-meta { gap: 28px; }
+  #opening .op-title { white-space: normal; font-size: min(26vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (var(--len) * .52) * 1.85)); line-height: .82; }
+  #opening .op-lower { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  #opening .op-tag { grid-row: 1; }
+  #opening .op-actions { grid-row: 2; }
+  #opening .op-two { --d: 30vw; }
+  #opening .op-two__head { grid-template-columns: minmax(0, 1fr); padding-top: calc(56px + 4svh); row-gap: 16px; }
+  #opening .op-two__head h2, #opening .op-two__note { grid-column: 1; }
+  #opening .op-veil__hole { cx: calc(18% + var(--col) * 32%); cy: calc(50% + (53% + var(--row) * 15.5%) / 2); }
+  #opening .op-rings .m-ring { left: calc(18% + var(--col) * 32%); top: calc(53% + var(--row) * 15.5%); }
+  #opening .op-two__foot { bottom: 3svh; }
+  #opening .op-two__foot p:last-child { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  #opening .op-intro { animation: op-photo-in 1.1s cubic-bezier(.2,.7,.2,1) backwards; }
+  #opening .op-drift { animation: op-drift 6s ease-in-out infinite alternate; }
+  #opening .op-title { animation: op-title-in .9s .1s cubic-bezier(.2,.7,.2,1) backwards, op-heat-flow 7s ease-in-out 1s infinite alternate; }
+  #opening .op-meta, #opening .op-upper > p, #opening .op-tag, #opening .op-actions { animation: op-rise .8s cubic-bezier(.2,.7,.2,1) backwards; }
+  #opening .op-meta { animation-delay: .25s; }
+  #opening .op-upper > p { animation-delay: .35s; }
+  #opening .op-tag { animation-delay: .45s; }
+  #opening .op-actions { animation-delay: .3s; }
+  #opening.is-offscreen .op-drift, #opening.is-offscreen .op-title { animation-play-state: paused; }
+}
+@keyframes op-photo-in { from { transform: scale(1.12); } }
+@keyframes op-drift { from { transform: translate(-2.2%, 1.6%) scale(1.02); } to { transform: translate(2.2%, -1.6%) scale(1.07); } }
+@keyframes op-title-in { from { clip-path: inset(0 0 100% 0); transform: translateY(14%); } }
+@keyframes op-heat-flow { from { background-position: 20% 0; } to { background-position: 80% 0; } }
+@keyframes op-rise { from { transform: translateY(18px); opacity: 0; } }
+}
+</style>
+<style data-8b-part="section:lineup">
+@layer sections {
+#lineup { background: var(--color-4); padding: clamp(80px, 13svh, 150px) 0 clamp(60px, 9svh, 110px); overflow: clip; }
+#lineup .lu-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; align-items: end; margin-bottom: clamp(40px, 7svh, 80px); }
+#lineup .lu-head h2 { grid-column: 1 / 8; }
+#lineup .lu-lead { grid-column: 8 / -1; max-width: 40ch; }
+#lineup .lu-list { border-top: 1px solid color-mix(in srgb, var(--color-3) 22%, transparent); }
+#lineup .lu-row { display: grid; grid-template-columns: clamp(110px, 12vw, 180px) minmax(0, 1fr) 200px; align-items: center; column-gap: clamp(16px, 2.4vw, 36px); padding: clamp(14px, 2svh, 22px) var(--space-2); border-bottom: 1px solid color-mix(in srgb, var(--color-3) 22%, transparent); }
+#lineup .lu-face { aspect-ratio: 1; border-radius: 50%; overflow: hidden; padding: 6px; border: 1px solid color-mix(in srgb, var(--color-3) 60%, transparent); }
+#lineup .lu-face img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; border-radius: 50%; }
+#lineup .lu-name-box { container-type: inline-size; min-width: 0; }
+#lineup .lu-name { font-size: min(160px, calc(100cqw / (var(--len) * .6))); white-space: nowrap; }
+#lineup .lu-when { display: grid; gap: 4px; justify-items: end; text-align: right; }
+#lineup .lu-when span:first-child { opacity: .78; }
+#lineup .lu-more { margin-top: 28px; }
+@media (max-width: 860px) {
+  #lineup .lu-head { grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+  #lineup .lu-head h2, #lineup .lu-lead { grid-column: 1; }
+  #lineup .lu-row { grid-template-columns: 76px minmax(0, 1fr); row-gap: 10px; }
+  #lineup .lu-face { grid-row: 1; padding: 4px; }
+  #lineup .lu-when { grid-row: 1; grid-column: 2; justify-items: start; text-align: left; }
+  #lineup .lu-name-box { grid-column: 1 / -1; grid-row: 2; }
+}
+}
+</style>
+<style data-8b-part="section:battle">
+@layer sections {
+#battle { background: var(--color-4); }
+#battle .bt-stage { position: sticky; top: 0; height: 100svh; min-height: 620px; overflow: hidden; --split: 50%; }
+#battle .bt-side { position: absolute; top: 0; bottom: 0; width: 76%; margin: 0; overflow: hidden; }
+#battle .bt-side img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15); }
+#battle .bt-side::after { content: ""; position: absolute; inset: 0; mix-blend-mode: multiply; }
+#battle .bt-side--a { left: 0; clip-path: inset(0 calc(100% - var(--split) / .76) 0 0); }
+#battle .bt-side--a::after { background: var(--color-2); }
+#battle .bt-side--a img { object-position: 62% 40%; }
+#battle .bt-side--b { right: 0; clip-path: inset(0 0 0 calc((var(--split) - 24%) / .76)); }
+#battle .bt-side--b::after { background: var(--color-5); }
+#battle .bt-side--b img { object-position: 45% 50%; }
+#battle .bt-shade { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-4) 72%, transparent) 0%, transparent 38%, transparent 60%, color-mix(in srgb, var(--color-4) 70%, transparent) 100%); }
+#battle .bt-line { position: absolute; inset: 0; translate: calc(var(--split) - 50%) 0; pointer-events: none; }
+#battle .bt-line::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--color-3); }
+#battle .bt-vs { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--color-3); background: var(--color-4); font-size: 18px; font-weight: 600; letter-spacing: .04em; }
+#battle .bt-copy { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr auto; column-gap: 20px; padding: calc(60px + 5svh) var(--space-2) 5svh; }
+#battle .bt-intro { grid-column: 1 / 6; display: grid; gap: 16px; align-content: start; justify-items: start; }
+#battle .bt-intro p { max-width: 34ch; }
+#battle .bt-rounds { grid-column: 8 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: start; border-top: 1px solid color-mix(in srgb, var(--color-3) 45%, transparent); }
+#battle .bt-round { display: grid; gap: 4px; padding-top: 12px; }
+#battle .bt-round span:last-child { font-size: clamp(18px, 1.6vw, 22px); font-weight: 500; }
+#battle .bt-name { grid-row: 3; display: grid; gap: 6px; align-self: end; }
+#battle .bt-name--a { grid-column: 1 / 7; justify-items: start; transform-origin: 0% 100%; }
+#battle .bt-name--b { grid-column: 7 / -1; justify-items: end; text-align: right; transform-origin: 100% 100%; }
+#battle .bt-crew { font-size: clamp(44px, 7.4vw, 116px); line-height: .86; }
+#battle .bt-enter { justify-self: start; font-size: 15px; }
+@media (max-width: 860px) {
+  #battle .bt-side { top: auto; bottom: auto; left: 0; right: 0; width: auto; height: 76%; }
+  #battle .bt-side--a { top: 0; clip-path: inset(0 0 calc(100% - var(--split) / .76) 0); }
+  #battle .bt-side--b { bottom: 0; clip-path: inset(calc((var(--split) - 24%) / .76) 0 0 0); }
+  #battle .bt-line { translate: 0 calc(var(--split) - 50%); }
+  #battle .bt-line::before { top: 50%; bottom: auto; left: 0; right: 0; width: auto; height: 2px; margin: -1px 0 0; }
+  #battle .bt-vs { left: auto; right: 20px; width: 60px; height: 60px; margin: -30px 0 0; font-size: 15px; }
+  #battle .bt-copy { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; padding: calc(56px + 3svh) var(--space-2) 3svh; row-gap: 18px; }
+  #battle .bt-intro, #battle .bt-rounds { grid-column: 1; }
+  #battle .bt-name--a { grid-column: 1; grid-row: 3; align-self: center; margin-top: 10svh; }
+  #battle .bt-name--b { grid-column: 1; grid-row: 4; justify-items: start; text-align: left; transform-origin: 0% 100%; margin-bottom: 40px; }
+  #battle .bt-crew { font-size: clamp(44px, 14vw, 64px); }
+}
+}
+</style>
+<style data-8b-part="section:zones">
+@layer sections {
+#zones { background: var(--color-2); padding: clamp(80px, 13svh, 150px) 0 clamp(70px, 10svh, 120px); }
+#zones .zn-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; align-items: end; margin-bottom: clamp(36px, 6svh, 70px); }
+#zones .zn-head h2 { grid-column: 1 / 8; }
+#zones .zn-head p { grid-column: 8 / -1; max-width: 40ch; }
+#zones .zn-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(28px, 4vw, 72px); }
+#zones .zn-plan { position: sticky; top: calc(50svh - min(100%, 74svh) / 2 + 24px); width: min(100%, 74svh); aspect-ratio: 1; margin-inline: auto; border-radius: 50%; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-3) 55%, transparent); background: var(--color-1); }
+#zones .zn-map { position: absolute; inset: 0; }
+#zones .zn-hall { position: absolute; inset: 15%; border: 1px dashed color-mix(in srgb, var(--color-3) 40%, transparent); border-radius: 24px; }
+#zones .zn-spot { position: absolute; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1; margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); }
+#zones .zn-spot img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 5px solid var(--color-1); outline: 1px solid color-mix(in srgb, var(--color-3) 70%, transparent); }
+#zones .zn-spot figcaption { position: absolute; left: 50%; bottom: -6px; translate: -50% 0; background: var(--color-1); }
+#zones .zn-items { border-top: 1px solid color-mix(in srgb, var(--color-3) 40%, transparent); }
+#zones .zn-item { min-height: 62svh; display: grid; align-content: center; gap: 14px; padding-block: 40px; border-bottom: 1px solid color-mix(in srgb, var(--color-3) 40%, transparent); }
+#zones .zn-item p { max-width: 38ch; }
+#zones .zn-item .m-badge { justify-self: start; }
+@media (max-width: 860px) {
+  #zones .zn-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+  #zones .zn-head h2, #zones .zn-head p { grid-column: 1; }
+  #zones .zn-grid { grid-template-columns: minmax(0, 1fr); }
+  #zones .zn-plan-col { position: sticky; top: 56px; z-index: 2; background: var(--color-2); padding-block: 12px; }
+  #zones .zn-plan { position: relative; top: auto; width: min(100%, 42svh); }
+  #zones .zn-item { min-height: 46svh; }
+}
+}
+</style>
+<style data-8b-part="scene-style:battle">
+@layer scenes {
+@media (prefers-reduced-motion: no-preference) {
+  #battle[data-duel] { height: 270svh; }
+}
+}
+</style>
+<style data-8b-part="section:food">
+@layer sections {
+#food { overflow: clip; background: var(--color-1); padding: clamp(80px, 13svh, 150px) 0 clamp(70px, 10svh, 120px); }
+#food .fd-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; row-gap: clamp(36px, 6svh, 64px); }
+#food .fd-head { grid-column: 1 / 6; display: grid; gap: 20px; align-content: start; }
+#food .fd-wide { grid-column: 7 / -1; margin: 0; aspect-ratio: 16 / 9; overflow: hidden; }
+#food .fd-wide img { width: 100%; height: 100%; object-fit: cover; }
+#food .fd-ring { grid-column: 1 / 5; grid-row: 2; align-self: start; margin: 0; aspect-ratio: 1; max-width: 340px; border-radius: 50%; padding: 8px; border: 1px solid color-mix(in srgb, var(--color-3) 55%, transparent); }
+#food .fd-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+#food .fd-board { grid-column: 6 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 48px); align-content: start; }
+#food .fd-item { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 4px; padding: 18px 0 20px; }
+#food .fd-ko { grid-column: 1; opacity: .8; }
+#food .fd-name { grid-column: 1; }
+#food .fd-note { grid-column: 1; opacity: .85; font-size: 14px; }
+#food .fd-price { grid-column: 2; grid-row: 2; }
+#food .fd-rule { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: color-mix(in srgb, var(--color-3) 35%, transparent); }
+@media (max-width: 860px) {
+  #food .fd-grid { grid-template-columns: minmax(0, 1fr); }
+  #food .fd-head, #food .fd-wide, #food .fd-board, #food .fd-ring { grid-column: 1; grid-row: auto; }
+  #food .fd-board { grid-template-columns: minmax(0, 1fr); }
+  #food .fd-ring { max-width: 240px; justify-self: end; }
+}
+}
+</style>
+<style data-8b-part="section:tickets">
+@layer sections {
+#tickets { padding: clamp(80px, 13svh, 150px) 0 clamp(80px, 12svh, 140px); overflow: clip; }
+#tickets .tk-head .m-text-3 { color: var(--color-4); background-image: none; -webkit-text-fill-color: currentColor; }
+#tickets .tk-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; align-items: end; margin-bottom: clamp(40px, 7svh, 80px); }
+#tickets .tk-head h2 { grid-column: 1 / 8; }
+#tickets .tk-head p { grid-column: 8 / -1; max-width: 40ch; }
+#tickets .tk-passes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+#tickets .tk-pass { display: grid; grid-template-rows: auto 1fr auto; gap: 26px; padding: 28px 26px 26px; border-radius: 22px; color: var(--color-3); min-height: 520px; }
+#tickets .tk-pass--day { background: var(--color-2); }
+#tickets .tk-pass--weekend { background: var(--color-1); }
+#tickets .tk-pass--pit { background: var(--color-4); }
+#tickets .tk-pass :focus-visible { outline-color: var(--color-3); }
+#tickets .tk-top { display: grid; gap: 18px; justify-items: start; }
+#tickets .tk-name { font-size: clamp(40px, 4.4vw, 64px); }
+#tickets .tk-list { display: grid; align-content: start; border-top: 1px solid color-mix(in srgb, var(--color-3) 35%, transparent); }
+#tickets .tk-list li { padding: 11px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-3) 35%, transparent); }
+#tickets .tk-stub { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 22px; border-top: 2px dashed color-mix(in srgb, var(--color-3) 55%, transparent); }
+#tickets .tk-price { font-size: clamp(34px, 3vw, 44px); font-weight: 500; letter-spacing: -.03em; line-height: 1; }
+#tickets .tk-note { margin-top: 26px; color: var(--color-4); }
+@media (max-width: 860px) {
+  #tickets .tk-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+  #tickets .tk-head h2, #tickets .tk-head p { grid-column: 1; }
+  #tickets .tk-passes { grid-template-columns: minmax(0, 1fr); }
+  #tickets .tk-pass { min-height: 0; }
+}
+}
+</style>
+<style data-8b-part="section:faq">
+@layer sections {
+#faq { background: var(--color-1); padding: clamp(80px, 13svh, 150px) 0 clamp(80px, 12svh, 140px); }
+#faq .fq-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; row-gap: 36px; }
+#faq .fq-head { grid-column: 1 / 5; display: grid; gap: 20px; align-content: start; justify-items: start; }
+#faq .fq-list { grid-column: 6 / -1; display: grid; gap: 12px; }
+#faq .fq-item summary { list-style: none; cursor: pointer; padding: 22px 64px 22px 22px; }
+#faq .fq-item summary::-webkit-details-marker { display: none; }
+#faq .fq-item p { padding: 0 64px 24px 22px; max-width: 60ch; }
+#faq .fq-item::before, #faq .fq-item::after { transition: rotate .35s cubic-bezier(.2,.7,.2,1); }
+#faq .fq-item[open]::before, #faq .fq-item[open]::after { rotate: 45deg; }
+@media (hover: hover) { #faq .fq-item summary:hover { background: color-mix(in srgb, var(--color-4) 25%, transparent); } }
+@media (max-width: 860px) {
+  #faq .fq-grid { grid-template-columns: minmax(0, 1fr); }
+  #faq .fq-head, #faq .fq-list { grid-column: 1; }
+}
+}
+</style>
+<style data-8b-part="section:contact">
+@layer sections {
+#contact { position: relative; background: var(--color-2); padding: clamp(90px, 14svh, 160px) 0; overflow: clip; }
+#contact .ct-rings { position: absolute; left: 70%; top: 50%; width: 0; height: 0; pointer-events: none; }
+#contact .ct-rings span { position: absolute; left: 0; top: 0; width: var(--d); aspect-ratio: 1; margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); border-radius: 50%; border: 1px solid color-mix(in srgb, var(--color-3) 45%, transparent); }
+#contact .ct-rings span:nth-child(1) { --d: 26vmax; }
+#contact .ct-rings span:nth-child(2) { --d: 46vmax; }
+#contact .ct-rings span:nth-child(3) { --d: 66vmax; }
+#contact .ct-rings span:nth-child(4) { --d: 86vmax; }
+#contact .ct-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; row-gap: 40px; }
+#contact h2 { grid-column: 1 / 8; }
+#contact .ct-mail { grid-column: 1 / -1; justify-self: start; font-size: clamp(30px, 4.6vw, 70px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; padding-bottom: 6px; background-size: 300% 2px; }
+#contact .ct-list { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 20px; }
+#contact .ct-list > div { display: grid; gap: 8px; align-content: start; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--color-3) 45%, transparent); }
+#contact .ct-list dt { opacity: .85; }
+@media (max-width: 860px) {
+  #contact .ct-rings { left: 85%; top: 30%; }
+  #contact h2 { grid-column: 1 / -1; }
+  #contact .ct-mail { font-size: clamp(24px, 7.4vw, 34px); }
+  #contact .ct-list { grid-template-columns: minmax(0, 1fr); }
+}
+}
+</style>
+<style data-8b-part="section:footer">
+@layer sections {
+#footer { background: var(--color-4); padding: 72px var(--space-2) 28px; margin-bottom: 0; }
+#footer .ft-mark { font-size: min(30vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (var(--len) * .65))); white-space: nowrap; }
+#footer .ft-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 32px; margin-top: 40px; padding-top: 22px; border-top: 1px solid color-mix(in srgb, var(--color-3) 25%, transparent); }
+#footer .ft-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+#footer small { opacity: .75; }
+}
+</style>
+<style data-8b-part="design-lab">
+@layer sections {
+/* Design Lab additions */
+#navigation .nav__logo { font-family: var(--font-mono); font-weight: 500; font-size: 15px; letter-spacing: .32em; align-items: center; }
+#navigation .nav__logo i { width: 9px; height: 9px; border-radius: 50%; background: var(--color-6); box-shadow: 0 0 14px var(--color-6); }
+.dl-soon { display: inline-flex; align-items: center; gap: 8px; }
+.dl-soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-6); box-shadow: 0 0 10px var(--color-6); }
+#opening .op-word--b { font-size: .5em; vertical-align: .55em; opacity: .9; }
+#opening .op-title { font-size: min(17vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (var(--len) * .62))); }
+#lineup .lu-name { font-size: min(150px, calc(100cqw / (var(--len) * .7))); }
+#footer .ft-mark { font-size: min(30vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (var(--len) * .72))); }
+.dl-mark:not(.dl-mark--num) { font-family: var(--font-1); font-weight: 600; }
+@media (max-width: 860px) {
+  #opening .op-word--b { display: none; }
+  #opening .op-title { white-space: normal; font-size: min(26vw, calc((100vw - 2 * var(--space-1) - 2 * var(--space-2)) / (6 * .62))); }
+}
+#battle .bt-side img { filter: grayscale(1) contrast(1.05) brightness(1.05); }
+#food .fd-ko { font-family: var(--font-mono); letter-spacing: .04em; text-transform: uppercase; font-size: 11px; }
+#food .fd-price { white-space: nowrap; }
+#tickets .tk-price { font-size: clamp(26px, 2.4vw, 36px); }
+#contact .ct-mail { pointer-events: none; }
+.dl-plan { margin-top: 18px; display: grid; gap: 6px; max-width: 70ch; }
+.dl-glow { background: radial-gradient(ellipse 60% 70% at 78% 40%, rgba(255,106,19,.55), rgba(255,106,19,0) 70%), radial-gradient(ellipse 50% 60% at 10% 90%, rgba(169,69,15,.5), rgba(169,69,15,0) 70%), linear-gradient(160deg, #2a1a10, #120b07 70%); }
+.dl-mark { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; font-family: var(--font-mono); font-weight: 500; font-size: clamp(22px, 3vw, 44px); color: var(--color-3); background: radial-gradient(circle at 50% 40%, rgba(255,106,19,.55), rgba(255,106,19,.08) 70%), var(--color-1); }
+.dl-mark--num { border: 5px solid var(--color-1); outline: 1px solid color-mix(in srgb, var(--color-3) 70%, transparent); font-size: clamp(28px, 4vw, 60px); }
+.dl-panel { width: 100%; height: 100%; }
+.dl-panel--a { background: radial-gradient(ellipse at 30% 40%, #ff6a13, #a9450f 45%, #3a1d0c); }
+.dl-panel--b { background: radial-gradient(ellipse at 70% 60%, #f7f0e9, #c9b8a6 50%, #6e5a48); }
+#battle .bt-side::after { display: none; }
+#food .fd-board { grid-column: 6 / -1; grid-row: 1; }
+@media (max-width: 860px) { #food .fd-board { grid-row: auto; } }
+}
+</style>
+</head>
+<body class="m-text">
+<a class="skip m-text-4" href="#main">Skip to content</a>
+<header id="navigation" data-8b-section="navigation">
+  <a class="nav__logo" href="#opening" aria-label="Design Lab, back to the top"><i aria-hidden="true"></i><span>DESIGN LAB</span></a>
+  <nav aria-label="Main">
+    <ul class="nav__links">
+      <li><a class="m-link" href="#lineup">Inside</a></li>
+      <li><a class="m-link" href="#battle">Two sides</a></li>
+      <li><a class="m-link" href="#zones">Your files</a></li>
+      <li><a class="m-link" href="#food">Pricing</a></li>
+      <li><a class="m-link" href="#faq">Questions</a></li>
+    </ul>
+  </nav>
+  <a class="m-btn nav__cta" href="#tickets"><span class="m-btn__label">Download</span></a>
+  <button class="m-iconbtn nav__menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button>
+  <div class="menu" id="menu" hidden>
+    <button class="m-iconbtn menu__close" type="button" aria-label="Close menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <ul>
+      <li><a href="#lineup">Inside</a></li>
+      <li><a href="#battle">Two sides</a></li>
+      <li><a href="#zones">Your files</a></li>
+      <li><a href="#food">Pricing</a></li>
+      <li><a href="#tickets">Download</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="menu__meta m-text-4">Software for architects, interior designers and vendors · India</p>
+  </div>
+</header>
+<main id="main">
+<section id="opening" class="slide" data-8b-section="opening" aria-labelledby="opening-title">
+  <div class="op-stage">
+    <div class="op-intro"><div class="op-drift"><div class="op-zoom">
+      <div class="op-photo dl-glow" aria-hidden="true"></div>
+    </div></div></div>
+    <div class="op-shade"></div>
+  </div>
+  <div class="op-one">
+    <div class="op-upper">
+      <dl class="op-meta">
+        <div><dt class="m-text-4">For</dt><dd>Architects, designers &amp; vendors</dd></div>
+        <div><dt class="m-text-4">Runs on</dt><dd>Your computer + phone</dd></div>
+      </dl>
+      <p class="m-text-5">Software for India's design fraternity. It runs the studio office, records the site and connects architects with the vendors they buy from.</p>
+    </div>
+    <h1 class="op-title m-text-2" id="opening-title" style="--len:12"><span class="op-word op-word--a">Design</span> <span class="op-word op-word--b">·</span> <span class="op-word op-word--c">Lab</span></h1>
+    <div class="op-lower">
+      <p class="op-tag">Made by an interior designer, for studios and makers who would rather design than chase files, minutes and payments.</p>
+      <div class="op-actions">
+        <a class="m-btn" href="#tickets"><span class="m-btn__label">Download for Windows</span></a>
+        <a class="m-btn-2" href="#lineup"><span class="m-btn-2__label">See what's inside</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="op-two">
+    <svg class="op-veil" aria-hidden="true" focusable="false">
+      <defs>
+        <mask id="op-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+          <rect class="op-veil__base" width="100%" height="100%" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:0;--col:0;--row:0" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:1;--col:1;--row:0" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:2;--col:2;--row:0" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:3;--col:0;--row:1" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:4;--col:1;--row:1" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:5;--col:2;--row:1" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:6;--col:0;--row:2" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:7;--col:1;--row:2" fill="currentColor"/>
+          <circle class="op-veil__hole" style="--i:8;--col:2;--row:2" fill="currentColor"/>
+          <rect class="op-veil__lid" width="100%" height="50%" fill="currentColor"/>
+        </mask>
+      </defs>
+      <rect class="op-veil__fill" width="100%" height="100%" mask="url(#op-holes)"/>
+    </svg>
+    <div class="op-two__head">
+      <h2 class="m-text-3" id="day">One studio,<br>nine jobs</h2>
+      <div class="op-two__note">
+        <p>Everything a studio does in a week, kept in one place on your own computer. Your phone is the screen at site.</p>
+        <a class="m-link" href="#lineup">What's inside</a>
+      </div>
+    </div>
+    <ol class="op-rings" aria-label="What Design Lab does">
+      <li class="m-ring" style="--i:0;--col:0;--row:0"><span class="m-ring__time">Folders</span><span class="m-ring__label">Sorted by themselves</span></li>
+      <li class="m-ring" style="--i:1;--col:1;--row:0"><span class="m-ring__time">MOM</span><span class="m-ring__label">Written from your voice</span></li>
+      <li class="m-ring" style="--i:2;--col:2;--row:0"><span class="m-ring__time">Snags</span><span class="m-ring__label">Listed room by room</span></li>
+      <li class="m-ring" style="--i:3;--col:0;--row:1"><span class="m-ring__time">Drawings</span><span class="m-ring__label">Latest revision only</span></li>
+      <li class="m-ring" style="--i:4;--col:1;--row:1"><span class="m-ring__time">Clients</span><span class="m-ring__label">Private links</span></li>
+      <li class="m-ring" style="--i:5;--col:2;--row:1"><span class="m-ring__time">Vendors</span><span class="m-ring__label">Orders and samples</span></li>
+      <li class="m-ring" style="--i:6;--col:0;--row:2"><span class="m-ring__time">Accounts</span><span class="m-ring__label">Hours, fees, expenses</span></li>
+      <li class="m-ring" style="--i:7;--col:1;--row:2"><span class="m-ring__time">Moods</span><span class="m-ring__label">Boards sent for samples</span></li>
+      <li class="m-ring" style="--i:8;--col:2;--row:2"><span class="m-ring__time">Courtyard</span><span class="m-ring__label">The community</span></li>
+    </ol>
+    <div class="op-two__foot m-text-4">
+      <p>Your files stay on your computer</p>
+      <p>Phone works on the same Wi-Fi</p>
+    </div>
+  </div>
+</section>
+<section id="lineup" class="slide" data-8b-section="lineup" aria-labelledby="lineup-title">
+  <div class="lu-head wrap">
+    <h2 class="m-text-3" id="lineup-title" data-8b-motion="heat">What's inside</h2>
+    <p class="lu-lead m-text-5" data-8b-motion="rise">One system with a space for each kind of work. Architects get Office and Site, vendors get Showroom, and everyone meets in The Courtyard.</p>
+  </div>
+  <ol class="lu-list">
+    <li class="lu-row">
+      <figure class="lu-face"><span class="dl-mark" aria-hidden="true">O</span></figure>
+      <div class="lu-name-box"><h3 class="lu-name m-text-2" style="--len:6">Office</h3></div>
+      <p class="lu-when m-text-4"><span>Architects &amp; designers</span><span>Projects, folders, schedule, accounts</span></p>
+    </li>
+    <li class="lu-row">
+      <figure class="lu-face"><span class="dl-mark" aria-hidden="true">S</span></figure>
+      <div class="lu-name-box"><h3 class="lu-name m-text-2" style="--len:4">Site</h3></div>
+      <p class="lu-when m-text-4"><span>On the phone, at site</span><span>Notes, snags, MOM from your voice</span></p>
+    </li>
+    <li class="lu-row">
+      <figure class="lu-face"><span class="dl-mark" aria-hidden="true">S</span></figure>
+      <div class="lu-name-box"><h3 class="lu-name m-text-2" style="--len:8">Showroom</h3></div>
+      <p class="lu-when m-text-4"><span>Vendors &amp; makers</span><span>Catalogue, orders, samples, visits</span></p>
+    </li>
+    <li class="lu-row">
+      <figure class="lu-face"><span class="dl-mark" aria-hidden="true">C</span></figure>
+      <div class="lu-name-box"><h3 class="lu-name m-text-2" style="--len:9">Courtyard</h3></div>
+      <p class="lu-when m-text-4"><span class="dl-soon">Opening soon</span><span>The community for everyone</span></p>
+    </li>
+  </ol>
+  <p class="lu-more wrap m-text-4">+ Tools and Partners &amp; Research are planned. See "What's next" below.</p>
+</section>
+<section id="battle" class="slide" data-8b-section="battle" aria-labelledby="battle-title">
+  <div class="bt-stage">
+    <figure class="bt-side bt-side--a"><div class="dl-panel dl-panel--a"></div></figure>
+    <figure class="bt-side bt-side--b"><div class="dl-panel dl-panel--b"></div></figure>
+    <div class="bt-shade"></div>
+    <div class="bt-line" aria-hidden="true"><span class="bt-vs">+</span></div>
+    <div class="bt-copy">
+      <div class="bt-intro">
+        <h2 class="m-text-3" id="battle-title">Two sides, one table</h2>
+        <p>Architects and vendors work on the same projects but rarely on the same page. Design Lab gives each side its own software and joins them where it matters.</p>
+        <a class="bt-enter m-link" href="#zones">See how files are arranged</a>
+      </div>
+      <ol class="bt-rounds">
+        <li class="bt-round"><span class="m-text-4">Step 1</span><span>Mood board</span></li>
+        <li class="bt-round"><span class="m-text-4">Step 2</span><span>Samples</span></li>
+        <li class="bt-round"><span class="m-text-4">Step 3</span><span>Orders</span></li>
+      </ol>
+      <p class="bt-name bt-name--a"><span class="m-text-4">Office · Site</span><span class="bt-crew m-text-3">Architects</span></p>
+      <p class="bt-name bt-name--b"><span class="m-text-4">Showroom · Office</span><span class="bt-crew m-text-3">Vendors</span></p>
+    </div>
+  </div>
+</section>
+<section id="zones" class="slide" data-8b-section="zones" aria-labelledby="zones-title">
+  <div class="zn-head wrap">
+    <h2 class="m-text-3" id="zones-title" data-8b-motion="heat">Your files, arranged</h2>
+    <p class="m-text-5" data-8b-motion="rise">Install Design Lab and the assistant arranges your project files, new and old. Bots trained on Design Lab's folders do the sorting.</p>
+  </div>
+  <div class="zn-grid wrap">
+    <div class="zn-plan-col">
+      <div class="zn-plan" role="img" aria-label="A project with four steps: old projects brought in, the Inbox, the Smart Sorting Bot and the Bin">
+        <div class="zn-map">
+          <span class="zn-hall"></span>
+          <figure class="zn-spot" style="--x:33%;--y:33%;--s:40%"><span class="dl-mark dl-mark--num" aria-hidden="true">1</span><figcaption class="m-badge">Old projects</figcaption></figure>
+          <figure class="zn-spot" style="--x:73%;--y:31%;--s:27%"><span class="dl-mark dl-mark--num" aria-hidden="true">2</span><figcaption class="m-badge">Inbox</figcaption></figure>
+          <figure class="zn-spot" style="--x:29%;--y:74%;--s:25%"><span class="dl-mark dl-mark--num" aria-hidden="true">3</span><figcaption class="m-badge">Smart bot</figcaption></figure>
+          <figure class="zn-spot" style="--x:68%;--y:70%;--s:32%"><span class="dl-mark dl-mark--num" aria-hidden="true">4</span><figcaption class="m-badge">Bin</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <ol class="zn-items">
+      <li class="zn-item">
+        <h3 class="m-text-6">Bring in old projects</h3>
+        <p class="m-badge">First day</p>
+        <p>The assistant asks where to keep your Design Lab folders, then whether to bring in your old project folders. They are copied and sorted. Your originals are never moved or changed.</p>
+      </li>
+      <li class="zn-item">
+        <h3 class="m-text-6">The Inbox sorts itself</h3>
+        <p class="m-badge">Every minute</p>
+        <p>Drop any file into a project's 00 Inbox. Drawings, renders, site photos, MOMs and bills go to the right folder, and older drawing revisions move to Superseded.</p>
+      </li>
+      <li class="zn-item">
+        <h3 class="m-text-6">Smart Sorting Bot</h3>
+        <p class="m-badge">Uses AI</p>
+        <p>Files with unclear names go to a bot trained on Design Lab's folders. It is paid per use from your prepaid wallet, and only when you switch it on.</p>
+      </li>
+      <li class="zn-item">
+        <h3 class="m-text-6">Nothing is lost</h3>
+        <p class="m-badge">Always</p>
+        <p>Nothing is deleted. Removed files wait in the Bin for 30 days, and every sort can be undone with one button.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+<section id="food" class="slide" data-8b-section="food" aria-labelledby="food-title">
+  <div class="fd-grid wrap">
+    <div class="fd-head">
+      <h2 class="m-text-3" id="food-title" data-8b-motion="heat">Pricing</h2>
+      <p class="m-text-5" data-8b-motion="rise">Pay once to set up, then a small monthly fee. The AI bots are paid from a prepaid wallet, only when they do work for you.</p>
+    </div>
+    <ul class="fd-board" data-8b-motion="rise">
+      <li class="fd-item"><span class="fd-ko m-text-4">Architects &amp; designers</span><span class="fd-name m-text-6">Setup</span><span class="fd-note">One time, includes the studio software</span><span class="fd-price m-text-6">₹10,000 + GST</span><span class="fd-rule" data-rule></span></li>
+      <li class="fd-item"><span class="fd-ko m-text-4">Architects &amp; designers</span><span class="fd-name m-text-6">Monthly</span><span class="fd-note">Includes 1 user</span><span class="fd-price m-text-6">₹499</span><span class="fd-rule" data-rule></span></li>
+      <li class="fd-item"><span class="fd-ko m-text-4">Vendors &amp; makers</span><span class="fd-name m-text-6">Setup</span><span class="fd-note">One time, includes Showroom and Office</span><span class="fd-price m-text-6">₹25,000 + GST</span><span class="fd-rule" data-rule></span></li>
+      <li class="fd-item"><span class="fd-ko m-text-4">Vendors &amp; makers</span><span class="fd-name m-text-6">Monthly</span><span class="fd-note">Includes 1 user</span><span class="fd-price m-text-6">₹1,999</span><span class="fd-rule" data-rule></span></li>
+      <li class="fd-item"><span class="fd-ko m-text-4">Your team</span><span class="fd-name m-text-6">Extra user</span><span class="fd-note">You see the new total before anyone is added</span><span class="fd-price m-text-6">₹199 / month</span><span class="fd-rule" data-rule></span></li>
+      <li class="fd-item"><span class="fd-ko m-text-4">AI bots</span><span class="fd-name m-text-6">Wallet top-up</span><span class="fd-note">Unused balance carries forward; a warning before it runs low</span><span class="fd-price m-text-6">from ₹1,000</span><span class="fd-rule" data-rule></span></li>
+    </ul>
+  </div>
+</section>
+<section id="tickets" class="slide slide--light" data-8b-section="tickets" aria-labelledby="tickets-title">
+  <div class="tk-head wrap">
+    <h2 class="m-text-3" id="tickets-title" data-8b-motion="rise">Get Design Lab</h2>
+    <p class="m-text-5" data-8b-motion="rise">Install it on the studio computer, open it on your phone, and watch what comes next. The pilot uses test payment only: no money moves.</p>
+  </div>
+  <ol class="tk-passes wrap">
+    <li class="tk-pass tk-pass--day">
+      <div class="tk-top"><span class="m-badge">Windows 10 or 11</span><h3 class="tk-name m-text-3">Install</h3></div>
+      <ul class="tk-list"><li>Unzip, then double-click START DESIGN LAB</li><li>Python, which it needs, is installed for you the first time</li><li>Register your studio and the assistant sets up your folders</li></ul>
+      <div class="tk-stub"><p class="tk-price">Pilot</p><a class="m-btn" href="downloads/DesignLab-Setup.zip" download><span class="m-btn__label">Download (2.7 MB)</span></a></div>
+    </li>
+    <li class="tk-pass tk-pass--weekend">
+      <div class="tk-top"><span class="m-badge">Android and iPhone</span><h3 class="tk-name m-text-3">Phone</h3></div>
+      <ul class="tk-list"><li>On the computer: Office, Today, Open on your phone</li><li>Scan the code with the phone camera</li><li>Sign in with your own user ID</li></ul>
+      <div class="tk-stub"><p class="tk-price">No app store</p><a class="m-btn" href="#faq"><span class="m-btn__label">How it works</span></a></div>
+    </li>
+    <li class="tk-pass tk-pass--pit">
+      <div class="tk-top"><span class="m-badge">Planned, built step by step</span><h3 class="tk-name m-text-3">What's next</h3></div>
+      <ul class="tk-list"><li><b>Tools</b>: an AI social media assistant, plus news on new technology, AI tools and software for designers and vendors</li><li><b>Partners &amp; Research</b>: international brands, affiliations, visiting architects, visits and exhibitions, in The Courtyard</li></ul>
+      <div class="tk-stub"><p class="tk-price">Later</p><a class="m-btn" href="#contact"><span class="m-btn__label">Stay in touch</span></a></div>
+    </li>
+  </ol>
+  <p class="tk-note wrap m-text-4">Tools and Partners &amp; Research are plans, not live services or existing partnerships yet.</p>
+</section>
+<section id="faq" class="slide" data-8b-section="faq" aria-labelledby="faq-title">
+  <div class="fq-grid wrap">
+    <div class="fq-head">
+      <h2 class="m-text-3" id="faq-title" data-8b-motion="heat">Good to know</h2>
+      <p>Plain answers to what studios ask first.</p>
+    </div>
+    <div class="fq-list" data-8b-motion="rise">
+      <details class="fq-item m-surface"><summary class="m-text-6">Where are my files kept?</summary><p>On your own computer, in folders you choose (or on Google Drive or OneDrive). Design Lab does not upload your project files anywhere.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">Will it change my old folders?</summary><p>No. Old project folders are copied in and sorted. The originals stay exactly as they were.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">How do I use it on my phone?</summary><p>Keep the computer on with Design Lab open. Put the phone on the same Wi-Fi, open Office, Today, Open on your phone, scan the code and sign in. No app to install.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">Do I need the internet?</summary><p>Day-to-day work runs on your computer. The AI bots and The Courtyard need the internet.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">Is the payment real?</summary><p>Not during the pilot. Registration shows a test payment and no money moves.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">Windows says it protected my PC</summary><p>That message appears for new software. Click More info, then Run anyway. If the firewall asks, click Allow so your phone can reach Design Lab.</p></details>
+    </div>
+  </div>
+</section>
+<section id="contact" class="slide" data-8b-section="contact" aria-labelledby="contact-title">
+  <div class="ct-rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="ct-grid wrap">
+    <h2 class="m-text-3" id="contact-title">Join the<br>pilot</h2>
+    <p class="ct-mail">By invitation</p>
+    <dl class="ct-list">
+      <div><dt class="m-text-4">Who</dt><dd>Architects, interior designers and vendors</dd></div>
+      <div><dt class="m-text-4">Where</dt><dd>Mumbai and Bengaluru first</dd></div>
+      <div><dt class="m-text-4">Needs</dt><dd>A Windows 10 or 11 computer, and a phone with a browser</dd></div>
+      <div><dt class="m-text-4">About us</dt><dd><span class="dl-soon">Coming soon</span></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+<footer id="footer" class="slide" data-8b-section="footer">
+  <p class="ft-mark m-text-2" style="--len:10" data-8b-motion="heat">DESIGN LAB</p>
+  <div class="ft-row m-text-4">
+    <ul class="ft-links">
+      <li><a class="m-link" href="#tickets">Download</a></li>
+      <li><a class="m-link" href="#food">Pricing</a></li>
+      <li><a class="m-link" href="#faq">Questions</a></li>
+    </ul>
+    <small>© 2026 Design Lab · Mumbai · Bengaluru · Layout: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></small>
+  </div>
+</footer>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script data-8b-part="motion-queue">
 (() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.documentElement.classList.add('motion-ready');
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    hero.classList.add('motion-active');
-    hero.querySelectorAll('.eyebrow,h1,.hero-copy,.actions').forEach((node,index) => {
-      node.classList.add('hero-arrive'); node.style.setProperty('--motion-delay', (index * 130) + 'ms');
-    });
-    document.querySelector('.hero-art')?.classList.add('hero-art-arrive');
-  }
-  const reveal = ['.intro .eyebrow','.intro h2','.intro-text','.intro .rule','.spaces .section-head','.space-card','.workflow>.wrap>.eyebrow','.workflow .h2','.step','.devices-grid>div:first-child','.device-art','.install-card'].flatMap(selector => [...document.querySelectorAll(selector)]);
-  reveal.forEach((node,index) => {
-    node.classList.add('motion-reveal');
-    if (node.matches('.space-card,.step')) node.style.setProperty('--motion-delay', ((index % 3) * 110) + 'ms');
-  });
-  document.querySelector('.steps')?.classList.add('motion-line');
-  const watched = [...document.querySelectorAll('.motion-reveal,.space-card,.device-ring,.steps,.install-card')];
-  if (!('IntersectionObserver' in window)) watched.forEach(node => node.classList.add('is-in'));
-  else {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-in'); observer.unobserve(entry.target); }
-    }), {threshold:.16,rootMargin:'0px 0px -35px 0px'});
-    watched.forEach(node => observer.observe(node));
-  }
-  const progress = () => {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    document.documentElement.style.setProperty('--read-progress', (max > 0 ? (window.scrollY / max) * 100 : 0) + '%');
+  'use strict';
+  const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+  const parsed = document.readyState === 'loading' ? new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true })) : Promise.resolve();
+  const ready = () => Promise.all([fonts, parsed]).then(() => firsts);
+  const nextTask = () => window.scheduler?.yield?.() ?? new Promise(resolve => setTimeout(resolve));
+  const refresh = () => {
+    if (typeof window.refreshScroll === 'function') return window.refreshScroll();
+    window.ScrollTrigger?.sort(); window.ScrollTrigger?.refresh();
   };
-  progress(); window.addEventListener('scroll', progress, {passive:true});
+  const run = (setup, name) => {
+    for (const trigger of window.ScrollTrigger?.getAll() || []) if (!trigger.end && window.ScrollTrigger.getAll().includes(trigger)) trigger.refresh(0, 1);
+    const context = window.gsap.context(() => {});
+    const log = new MutationObserver(() => {});
+    log.observe(document.documentElement, { attributes: true, attributeOldValue: true, subtree: true });
+    let failure = null, records;
+    try { context.add(() => { try { setup(); } catch (error) { failure = error; } }); }
+    finally { records = log.takeRecords(); log.disconnect(); }
+    if (!failure) return true;
+    try { context.revert(); } catch (error) { console.error(name, 'revert failed', error); }
+    for (const { target, attributeName, oldValue } of records.reverse()) {
+      const now = target.getAttribute(attributeName);
+      if (oldValue == null) { if (now != null) target.removeAttribute(attributeName); }
+      else if (now !== oldValue) target.setAttribute(attributeName, oldValue);
+    }
+    console.error(name, failure);
+    return false;
+  };
+  let firsts = Promise.resolve(), tail = null, pending = 0, lazy = null, building = 0, firstCount = 0;
+  window.motionReady = ready();
+  parsed.then(() => { if (firstCount && !tail) firsts.then(refresh); });
+  window.queueMotion = (setup, { first = false, near, id } = {}) => {
+    if (!window.gsap || typeof setup !== 'function') return;
+    const name = id || document.currentScript?.getAttribute('data-8b-part') || 'motion';
+    if (near instanceof Element && window.IntersectionObserver) {
+      const watch = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        watch.disconnect();
+        building++;
+        lazy = (lazy || ready()).then(nextTask).then(() => run(setup, name)).finally(() => { if (!--building) refresh(); });
+      }, { rootMargin: '100% 0px' });
+      watch.observe(near);
+      return;
+    }
+    if (first) { firstCount++; firsts = firsts.then(() => fonts).then(() => { if (!run(setup, name)) refresh(); }); }
+    else {
+      pending++;
+      tail = (tail || ready()).then(nextTask).then(() => run(setup, name))
+        .finally(() => { if (!--pending) refresh(); });
+    }
+    window.motionReady = Promise.all([firsts, tail]);
+  };
 })();
 </script>
+<script data-8b-part="page-init">
+gsap.registerPlugin(ScrollTrigger);
+function navHeight() {
+  const nav = document.querySelector('[data-8b-section="navigation"]');
+  return nav ? nav.getBoundingClientRect().height : 0;
+}
+function refreshScroll() {
+  if (window.lenis) window.lenis.options.anchors = { offset: -navHeight() };
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
+}
+gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+  const lenis = window.lenis = new Lenis({ lerp: .11, anchors: { offset: -navHeight() } });
+  const tick = time => lenis.raf(time * 1000);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(tick);
+  gsap.ticker.lagSmoothing(0);
+  return () => { gsap.ticker.remove(tick); gsap.ticker.lagSmoothing(500, 33); lenis.destroy(); window.lenis = null; };
+});
+</script>
+<script data-8b-part="motion">
+const effects = {
+  heat(element, vars = {}) {
+    return gsap.fromTo(element, { '--heat': 0 }, { '--heat': 1, ease: 'none', ...vars });
+  },
+  rise(element, vars = {}) {
+    const items = element.children.length ? [...element.children] : [element];
+    const rules = element.querySelectorAll('[data-rule]');
+    const timeline = gsap.timeline(vars);
+    timeline.from(items, { y: 34, opacity: 0, duration: .8, ease: 'power3.out', stagger: .09 }, 0);
+    if (rules.length) timeline.from(rules, { scaleX: 0, transformOrigin: '0% 50%', duration: 1, ease: 'power2.inOut', stagger: .09 }, 0);
+    return timeline;
+  },
+  ringdraw(element, vars = {}) {
+    return gsap.timeline(vars).from(element, { scale: 1.35, rotate: -70, opacity: 0, duration: .9, ease: 'power3.out' });
+  }
+};
+const bindings = {
+  heat: { scrub: true, start: 'top 95%', end: 'top 55%' },
+  rise: { once: true, start: 'top 86%' },
+  ringdraw: { once: true, start: 'top 90%' }
+};
+document.querySelectorAll('[data-8b-section]').forEach(section => {
+  Object.keys(effects).forEach(name => {
+    const elements = [...section.querySelectorAll(`[data-8b-motion~="${name}"]`)];
+    if (!elements.length) return;
+    const id = `effect:${name}:${section.id}`;
+    queueMotion(() => gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+      elements.forEach((element, index) => {
+        const { scrub, once, start, end } = bindings[name];
+        const animation = effects[name](element, scrub ? {} : { paused: true });
+        ScrollTrigger.create({ id: `${id}:${index}`, trigger: element, start, end, scrub: scrub ? .4 : false, once: !!once, animation, toggleActions: scrub ? undefined : 'play none none none' });
+      });
+    }), { first: section.getBoundingClientRect().top < innerHeight, id });
+  });
+});
+</script>
+<script data-8b-part="section-script:navigation">
+(() => {
+  const nav = document.getElementById('navigation');
+  const menu = nav.querySelector('.menu');
+  const openButton = nav.querySelector('.nav__menu');
+  const closeButton = menu.querySelector('.menu__close');
+  let lastY = scrollY, run = 0, hidden = false;
+  addEventListener('scroll', () => {
+    const y = scrollY, delta = y - lastY;
+    lastY = y;
+    if (!delta) return;
+    if (Math.sign(delta) !== Math.sign(run)) run = 0;
+    run += delta;
+    let next = hidden;
+    if (y < 80) next = false;
+    else if (run > 30) next = true;
+    else if (run < -60) next = false;
+    if (next !== hidden) { hidden = next; nav.classList.toggle('is-hidden', hidden); }
+  }, { passive: true });
+  nav.addEventListener('focusin', () => { hidden = false; nav.classList.remove('is-hidden'); });
+  const setOpen = open => {
+    menu.hidden = !open;
+    openButton.setAttribute('aria-expanded', String(open));
+    if (open) { hidden = false; nav.classList.remove('is-hidden'); window.lenis?.stop(); closeButton.focus(); }
+    else { window.lenis?.start(); openButton.focus(); }
+  };
+  openButton.addEventListener('click', () => setOpen(true));
+  closeButton.addEventListener('click', () => setOpen(false));
+  menu.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.hidden = true; openButton.setAttribute('aria-expanded', 'false'); window.lenis?.start(); }));
+})();
+</script>
+<script data-8b-part="section-script:opening">
+(() => {
+  const section = document.getElementById('opening');
+  new IntersectionObserver(([entry]) => section.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(section.querySelector('.op-one'));
+})();
+</script>
+<script data-8b-part="scene:opening">
+queueMotion(() => {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.getElementById('opening');
+    const q = selector => section.querySelector(selector);
+    const rings = [...section.querySelectorAll('.op-rings .m-ring')];
+    gsap.set(q('.op-veil__lid'), { opacity: 0 });
+    const timeline = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: {
+      id: 'opening', trigger: section, start: 'top top', end: 'bottom bottom', scrub: .5, invalidateOnRefresh: true
+    }});
+    timeline
+      .fromTo(q('.op-zoom'), { scale: 1, y: 0 }, { scale: 1.18, y: () => innerHeight * (innerWidth < 861 ? .3 : .1), duration: 1 }, 0)
+      .to(q('.op-word--a'), { xPercent: -75, duration: .55, ease: 'power1.in' }, 0)
+      .to(q('.op-word--c'), { xPercent: 55, duration: .55, ease: 'power1.in' }, 0)
+      .to(q('.op-word--b'), { yPercent: -160, rotate: -8, duration: .45, ease: 'power1.in' }, 0)
+      .to(q('.op-upper'), { y: () => -innerHeight * .22, opacity: 0, duration: .35 }, 0)
+      .to(q('.op-lower'), { y: () => -innerHeight * .12, opacity: 0, duration: .3 }, .02)
+      .fromTo(q('.op-veil'), { autoAlpha: 0 }, { autoAlpha: 1, duration: .02 }, .26)
+      .fromTo(q('.op-veil'), { '--grow': 1 }, { '--grow': 0, duration: .72, ease: 'power2.inOut' }, .28)
+      .fromTo(rings, { scale: .35, opacity: 0 }, { scale: 1, opacity: 1, duration: .3, stagger: { each: .035, from: 'center' }, ease: 'power2.out' }, .62)
+      .fromTo(rings.flatMap(ring => [...ring.children]), { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: .2, stagger: .03 }, .74);
+  });
+}, { first: true, id: 'opening' });
+</script>
+<script data-8b-part="scene:lineup">
+queueMotion(() => {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.getElementById('lineup');
+    section.querySelectorAll('.lu-row').forEach((row, index) => {
+      const face = row.querySelector('.lu-face'), name = row.querySelector('.lu-name');
+      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: `lineup:row-${index}`, trigger: row, start: 'top bottom', end: 'bottom top', scrub: .4 } })
+        .fromTo(face, { scale: .42 }, { scale: 1, duration: .5, ease: 'power2.out' }, 0)
+        .to(face, { scale: .42, duration: .5, ease: 'power2.in' }, .5)
+        .fromTo(name, { '--heat': 0, xPercent: 7 }, { '--heat': 1, xPercent: 0, duration: .5, ease: 'power1.out' }, 0)
+        .to(name, { '--heat': .1, xPercent: -7, duration: .5, ease: 'power1.in' }, .5);
+    });
+  });
+});
+</script>
+<script data-8b-part="scene:battle">
+queueMotion(() => {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.getElementById('battle');
+    const stage = section.querySelector('.bt-stage');
+    const nameA = section.querySelector('.bt-name--a'), nameB = section.querySelector('.bt-name--b');
+    const rounds = [...section.querySelectorAll('.bt-round')];
+    section.setAttribute('data-duel', '');
+    const timeline = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
+      id: 'battle', trigger: section, start: 'top top', end: 'bottom bottom', scrub: .6
+    }});
+    timeline
+      .set(rounds, { opacity: .35 }, 0)
+      .to(rounds[0], { opacity: 1, duration: .2 }, 0)
+      .to(stage, { '--split': '74%', duration: 1 }, 0)
+      .to(nameA, { scale: 1.16, duration: 1 }, 0)
+      .to(nameB, { scale: .82, duration: 1 }, 0)
+      .to(rounds[0], { opacity: .35, duration: .2 }, 1.1)
+      .to(rounds[1], { opacity: 1, duration: .2 }, 1.1)
+      .to(stage, { '--split': '26%', duration: 1.4 }, 1.1)
+      .to(nameA, { scale: .82, duration: 1.4 }, 1.1)
+      .to(nameB, { scale: 1.16, duration: 1.4 }, 1.1)
+      .to(rounds[1], { opacity: .35, duration: .2 }, 2.6)
+      .to(rounds, { opacity: 1, duration: .3 }, 2.8)
+      .to(stage, { '--split': '50%', duration: 1 }, 2.6)
+      .to([nameA, nameB], { scale: 1, duration: 1 }, 2.6);
+    return () => section.removeAttribute('data-duel');
+  });
+});
+</script>
+<script data-8b-part="scene:zones">
+queueMotion(() => {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.getElementById('zones');
+    const map = section.querySelector('.zn-map');
+    const spots = [...section.querySelectorAll('.zn-spot')];
+    const centre = spot => ['--x', '--y'].map(name => parseFloat(getComputedStyle(spot).getPropertyValue(name)) / 100);
+    const zoom = 1.9;
+    const timeline = gsap.timeline({ defaults: { ease: 'power2.inOut' }, scrollTrigger: {
+      id: 'zones', trigger: section.querySelector('.zn-items'), start: 'top 70%', end: 'bottom 45%', scrub: .6, invalidateOnRefresh: true
+    }});
+    spots.forEach((spot, index) => {
+      const at = index * 1.6;
+      timeline
+        .to(map, { xPercent: () => -zoom * (centre(spot)[0] - .5) * 100, yPercent: () => -zoom * (centre(spot)[1] - .5) * 100, scale: zoom, duration: 1 }, at)
+        .to(spots.filter(other => other !== spot), { opacity: .35, duration: .6 }, at + .2)
+        .to(spot, { opacity: 1, duration: .6 }, at + .2);
+    });
+    timeline
+      .to(map, { xPercent: 0, yPercent: 0, scale: 1, duration: 1 }, spots.length * 1.6)
+      .to(spots, { opacity: 1, duration: .6 }, spots.length * 1.6 + .2);
+  });
+});
+</script>
+<script data-8b-part="scene:tickets">
+queueMotion(() => {
+  const section = document.getElementById('tickets');
+  const passes = [...section.querySelectorAll('.tk-pass')];
+  gsap.matchMedia().add({ wide: '(prefers-reduced-motion: no-preference) and (min-width: 861px)', narrow: '(prefers-reduced-motion: no-preference) and (max-width: 860px)' }, context => {
+    if (context.conditions.wide) {
+      const middle = (passes.length - 1) / 2;
+      gsap.timeline({ scrollTrigger: { id: 'tickets', trigger: section.querySelector('.tk-passes'), start: 'top 95%', end: 'top 35%', scrub: .5 } })
+        .from(passes, { xPercent: index => (middle - index) * 72, y: index => Math.abs(middle - index) * 60, rotate: index => (index - middle) * 9, ease: 'power2.out', duration: 1 }, 0);
+    } else {
+      passes.forEach((pass, index) => {
+        gsap.from(pass, { xPercent: index % 2 ? 10 : -10, rotate: index % 2 ? 5 : -5, ease: 'power2.out', scrollTrigger: { id: `tickets:pass-${index}`, trigger: pass, start: 'top bottom', end: 'top 55%', scrub: .5 } });
+      });
+    }
+  });
+});
+</script>
+<script data-8b-part="scene:contact">
+queueMotion(() => {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    const section = document.getElementById('contact');
+    const rings = [...section.querySelectorAll('.ct-rings span')];
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { id: 'contact', trigger: section, start: 'top bottom', end: 'center center', scrub: .5 } })
+      .fromTo(rings, { scale: index => .15 + index * .12, opacity: 0 }, { scale: 1, opacity: 1, duration: .8, stagger: .07, ease: 'power2.out' }, 0)
+      .fromTo(section.querySelector('h2'), { '--heat': 0 }, { '--heat': 1, duration: .7 }, .2);
+  });
+});
+</script>
+</body>
+</html>
