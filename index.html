@@ -514,6 +514,36 @@ button { font: inherit; color: inherit; }
 .dl-panel--b { background: radial-gradient(ellipse at 70% 60%, #f7f0e9, #c9b8a6 50%, #6e5a48); }
 #battle .bt-side::after { display: none; }
 #food .fd-board { grid-column: 6 / -1; grid-row: 1; }
+/* sign up */
+#signup { padding: clamp(80px, 12svh, 140px) 0; background: var(--color-4); }
+#signup .su-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+#signup .su-head p { margin-top: 16px; max-width: 46ch; }
+.su-steps { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 10px; }
+.su-steps li { opacity: .45; }
+.su-steps li.on { opacity: 1; color: var(--color-5); }
+.su-link { background: none; border: 0; padding: 0; color: var(--color-3); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; font: inherit; }
+.su-card { border: 1px solid color-mix(in srgb, var(--color-3) 22%, transparent); border-radius: 22px; padding: clamp(20px, 3vw, 36px); background: color-mix(in srgb, var(--color-1) 70%, black); }
+.su-label { margin: 0 0 10px; opacity: .7; }
+.su-seg { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.su-seg button { flex: 1 1 220px; min-height: 48px; padding: 0 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--color-3) 40%, transparent); background: transparent; color: var(--color-3); font: 500 15px var(--font-1); cursor: pointer; }
+.su-seg button.on { background: var(--color-6); border-color: var(--color-6); color: #fff; }
+.su-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+.su-fields label { display: grid; gap: 6px; font-size: 13px; opacity: .95; }
+.su-fields input { height: 48px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--color-3) 25%, transparent); background: color-mix(in srgb, var(--color-3) 6%, transparent); color: var(--color-3); padding: 0 14px; font: 16px var(--font-1); outline: none; }
+.su-fields input:focus { border-color: var(--color-6); }
+.su-hint { opacity: .7; margin: 14px 0 0; }
+.su-err { color: #ffb08a; min-height: 1.4em; margin: 10px 0 0; }
+.su-act { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.su-big { font: 500 clamp(28px, 3vw, 42px) var(--font-1); margin: 0 0 10px; }
+.su-code { font: 500 clamp(30px, 4.4vw, 58px) var(--font-mono); letter-spacing: .06em; color: var(--color-5); margin: 0 0 8px; overflow-wrap: anywhere; }
+.su-how { margin: 22px 0 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.5; }
+@media (max-width: 860px) { #signup .su-grid { grid-template-columns: 1fr; } .su-fields { grid-template-columns: 1fr; } }
+/* about */
+#about { padding: clamp(80px, 12svh, 140px) 0; background: var(--color-1); }
+#about .ab-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
+#about .ab-text { display: grid; gap: 16px; max-width: 60ch; }
+@media (max-width: 860px) { #about .ab-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 860px) { #food .fd-board { grid-row: auto; } }
 }
 </style>
@@ -528,10 +558,11 @@ button { font: inherit; color: inherit; }
       <li><a class="m-link" href="#battle">Two sides</a></li>
       <li><a class="m-link" href="#zones">Your files</a></li>
       <li><a class="m-link" href="#food">Pricing</a></li>
-      <li><a class="m-link" href="#faq">Questions</a></li>
+      <li><a class="m-link" href="#whats-next">Tools &amp; Partners</a></li>
+      <li><a class="m-link" href="#about">About us</a></li>
     </ul>
   </nav>
-  <a class="m-btn nav__cta" href="#tickets"><span class="m-btn__label">Download</span></a>
+  <a class="m-btn nav__cta" href="#signup"><span class="m-btn__label">Sign up</span></a>
   <button class="m-iconbtn nav__menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button>
   <div class="menu" id="menu" hidden>
     <button class="m-iconbtn menu__close" type="button" aria-label="Close menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -540,8 +571,11 @@ button { font: inherit; color: inherit; }
       <li><a href="#battle">Two sides</a></li>
       <li><a href="#zones">Your files</a></li>
       <li><a href="#food">Pricing</a></li>
-      <li><a href="#tickets">Download</a></li>
+      <li><a href="#signup">Sign up</a></li>
+      <li><a href="#tickets">Get the app</a></li>
+      <li><a href="#whats-next">Tools &amp; Partners</a></li>
       <li><a href="#faq">Questions</a></li>
+      <li><a href="#about">About us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <p class="menu__meta m-text-4">Software for architects, interior designers and vendors · India</p>
@@ -567,7 +601,7 @@ button { font: inherit; color: inherit; }
     <div class="op-lower">
       <p class="op-tag">Made by an interior designer, for studios and makers who would rather design than chase files, minutes and payments.</p>
       <div class="op-actions">
-        <a class="m-btn" href="#tickets"><span class="m-btn__label">Download for Windows</span></a>
+        <a class="m-btn" href="#signup"><span class="m-btn__label">Sign up</span></a>
         <a class="m-btn-2" href="#lineup"><span class="m-btn-2__label">See what's inside</span></a>
       </div>
     </div>
@@ -723,23 +757,68 @@ button { font: inherit; color: inherit; }
     </ul>
   </div>
 </section>
+<section id="signup" class="slide" data-8b-section="signup" aria-labelledby="signup-title">
+  <div class="su-grid wrap">
+    <div class="su-head">
+      <h2 class="m-text-3" id="signup-title">Sign up</h2>
+      <p class="m-text-5">Three steps: your details, payment (skipped during the pilot), then your Design Lab code and the download.</p>
+      <ol class="su-steps m-text-4"><li data-st="1" class="on">1 · Your details</li><li data-st="2">2 · Payment</li><li data-st="3">3 · Code &amp; download</li></ol>
+      <p class="su-again m-text-4"><button type="button" class="su-link" id="su-again" hidden>Already signed up on this computer? Show my code</button></p>
+    </div>
+    <div class="su-card">
+      <form id="su-1" class="su-pane" autocomplete="on" novalidate>
+        <p class="su-label m-text-4">I am</p>
+        <div class="su-seg" role="radiogroup" aria-label="I am"><button type="button" class="on" data-kind="design">An architect / interior designer</button><button type="button" data-kind="vendor">A vendor / maker</button></div>
+        <div class="su-fields">
+          <label><span id="su-firm-l">Firm name</span><input id="su-firm" autocomplete="organization" maxlength="120" required></label>
+          <label><span>Your name</span><input id="su-name" autocomplete="name" maxlength="80" required></label>
+          <label><span>City</span><input id="su-city" autocomplete="address-level2" maxlength="60" required></label>
+          <label><span>Phone (10 digits)</span><input id="su-phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" required></label>
+          <label><span>Email</span><input id="su-email" type="email" autocomplete="email" maxlength="120" required></label>
+          <label><span>Choose your user ID</span><input id="su-uid" autocapitalize="off" spellcheck="false" autocomplete="username" maxlength="30" required></label>
+        </div>
+        <p class="su-hint m-text-4">User ID: 3–30 letters or numbers, no spaces. You will sign in to the app with this same ID.</p>
+        <p class="su-err" id="su-err" role="alert"></p>
+        <div class="su-act"><button class="m-btn" type="submit"><span class="m-btn__label">Continue</span></button></div>
+      </form>
+      <div id="su-2" class="su-pane" hidden>
+        <p class="su-big">Payment</p>
+        <p class="m-text-5">During the pilot, payment is skipped. Nothing is charged.</p>
+        <div class="su-act"><button type="button" class="m-btn-2 su-back" data-to="1"><span class="m-btn__label">Back</span></button><button type="button" class="m-btn" id="su-next2"><span class="m-btn__label">Continue</span></button></div>
+      </div>
+      <div id="su-3" class="su-pane" hidden>
+        <p class="m-text-4 su-label">Your Design Lab code</p>
+        <p class="su-code" id="su-code">DL-0000-0000</p>
+        <p class="m-text-5" id="su-who"></p>
+        <div class="su-act"><a class="m-btn" href="downloads/DesignLab-Setup.zip" download><span class="m-btn__label">Download Design Lab for Windows</span></a><button type="button" class="m-btn-2" id="su-copy"><span class="m-btn__label">Copy code</span></button></div>
+        <ol class="su-how">
+          <li>Unzip the download and double-click <b>START DESIGN LAB</b>.</li>
+          <li>Choose <b id="su-team">Design team</b>, then <b>New user · Register</b>.</li>
+          <li>Fill in your details and type this code in <b>Code from the website</b>. Payment is skipped.</li>
+          <li>Create your user with the same user ID: <b id="su-uid-show"></b>.</li>
+        </ol>
+        <p class="su-hint m-text-4">Keep this code. It is saved on this computer too: come back to this page and press <b>Show my code</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="tickets" class="slide slide--light" data-8b-section="tickets" aria-labelledby="tickets-title">
   <div class="tk-head wrap">
     <h2 class="m-text-3" id="tickets-title" data-8b-motion="rise">Get Design Lab</h2>
-    <p class="m-text-5" data-8b-motion="rise">Install it on the studio computer, open it on your phone, and watch what comes next. The pilot uses test payment only: no money moves.</p>
+    <p class="m-text-5" data-8b-motion="rise">Sign up, install it on the studio computer, open it on your phone, and watch what comes next. During the pilot no payment is taken.</p>
   </div>
   <ol class="tk-passes wrap">
     <li class="tk-pass tk-pass--day">
       <div class="tk-top"><span class="m-badge">Windows 10 or 11</span><h3 class="tk-name m-text-3">Install</h3></div>
-      <ul class="tk-list"><li>Unzip, then double-click START DESIGN LAB</li><li>Python, which it needs, is installed for you the first time</li><li>Register your studio and the assistant sets up your folders</li></ul>
-      <div class="tk-stub"><p class="tk-price">Pilot</p><a class="m-btn" href="downloads/DesignLab-Setup.zip" download><span class="m-btn__label">Download (2.7 MB)</span></a></div>
+      <ul class="tk-list"><li>Sign up here and get your Design Lab code</li><li>Unzip, then double-click START DESIGN LAB</li><li>Register in the app with your code and the same user ID</li></ul>
+      <div class="tk-stub"><p class="tk-price">Pilot</p><a class="m-btn" href="#signup"><span class="m-btn__label">Sign up to download</span></a></div>
     </li>
     <li class="tk-pass tk-pass--weekend">
       <div class="tk-top"><span class="m-badge">Android and iPhone</span><h3 class="tk-name m-text-3">Phone</h3></div>
       <ul class="tk-list"><li>On the computer: Office, Today, Open on your phone</li><li>Scan the code with the phone camera</li><li>Sign in with your own user ID</li></ul>
       <div class="tk-stub"><p class="tk-price">No app store</p><a class="m-btn" href="#faq"><span class="m-btn__label">How it works</span></a></div>
     </li>
-    <li class="tk-pass tk-pass--pit">
+    <li class="tk-pass tk-pass--pit" id="whats-next">
       <div class="tk-top"><span class="m-badge">Planned, built step by step</span><h3 class="tk-name m-text-3">What's next</h3></div>
       <ul class="tk-list"><li><b>Tools</b>: an AI social media assistant, plus news on new technology, AI tools and software for designers and vendors</li><li><b>Partners &amp; Research</b>: international brands, affiliations, visiting architects, visits and exhibitions, in The Courtyard</li></ul>
       <div class="tk-stub"><p class="tk-price">Later</p><a class="m-btn" href="#contact"><span class="m-btn__label">Stay in touch</span></a></div>
@@ -758,8 +837,17 @@ button { font: inherit; color: inherit; }
       <details class="fq-item m-surface"><summary class="m-text-6">Will it change my old folders?</summary><p>No. Old project folders are copied in and sorted. The originals stay exactly as they were.</p></details>
       <details class="fq-item m-surface"><summary class="m-text-6">How do I use it on my phone?</summary><p>Keep the computer on with Design Lab open. Put the phone on the same Wi-Fi, open Office, Today, Open on your phone, scan the code and sign in. No app to install.</p></details>
       <details class="fq-item m-surface"><summary class="m-text-6">Do I need the internet?</summary><p>Day-to-day work runs on your computer. The AI bots and The Courtyard need the internet.</p></details>
-      <details class="fq-item m-surface"><summary class="m-text-6">Is the payment real?</summary><p>Not during the pilot. Registration shows a test payment and no money moves.</p></details>
+      <details class="fq-item m-surface"><summary class="m-text-6">Do I pay now?</summary><p>Not during the pilot. Payment is skipped: sign up, get your code and download.</p></details>
       <details class="fq-item m-surface"><summary class="m-text-6">Windows says it protected my PC</summary><p>That message appears for new software. Click More info, then Run anyway. If the firewall asks, click Allow so your phone can reach Design Lab.</p></details>
+    </div>
+  </div>
+</section>
+<section id="about" class="slide" data-8b-section="about" aria-labelledby="about-title">
+  <div class="ab-grid wrap">
+    <h2 class="m-text-3" id="about-title">About us</h2>
+    <div class="ab-text">
+      <p class="m-text-5">Design Lab is founded by <b>Aalok Sunny Saigal</b>, an interior designer based in Mumbai.</p>
+      <p>Made by an interior designer, for studios and makers who would rather design than chase files, minutes and payments.</p>
     </div>
   </div>
 </section>
@@ -772,7 +860,7 @@ button { font: inherit; color: inherit; }
       <div><dt class="m-text-4">Who</dt><dd>Architects, interior designers and vendors</dd></div>
       <div><dt class="m-text-4">Where</dt><dd>Mumbai and Bengaluru first</dd></div>
       <div><dt class="m-text-4">Needs</dt><dd>A Windows 10 or 11 computer, and a phone with a browser</dd></div>
-      <div><dt class="m-text-4">About us</dt><dd><span class="dl-soon">Coming soon</span></dd></div>
+      <div><dt class="m-text-4">About us</dt><dd><a class="m-link" href="#about">Founded by Aalok Sunny Saigal</a></dd></div>
     </dl>
   </div>
 </section>
@@ -781,7 +869,8 @@ button { font: inherit; color: inherit; }
   <p class="ft-mark m-text-2" style="--len:10" data-8b-motion="heat">DESIGN LAB</p>
   <div class="ft-row m-text-4">
     <ul class="ft-links">
-      <li><a class="m-link" href="#tickets">Download</a></li>
+      <li><a class="m-link" href="#signup">Sign up</a></li>
+      <li><a class="m-link" href="#about">About us</a></li>
       <li><a class="m-link" href="#food">Pricing</a></li>
       <li><a class="m-link" href="#faq">Questions</a></li>
     </ul>
@@ -1061,6 +1150,56 @@ queueMotion(() => {
       .fromTo(section.querySelector('h2'), { '--heat': 0 }, { '--heat': 1, duration: .7 }, .2);
   });
 });
+</script>
+<script>
+/* Design Lab sign up: details -> payment (skipped in the pilot) -> code + download. Nothing is sent anywhere; the code is checked by the app. */
+(() => {
+  const AL = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  const check = (s) => AL[[...s].reduce((t, c, i) => t + (i + 1) * AL.indexOf(c), 0) % AL.length];
+  const makeCode = () => { let s = ""; const r = crypto.getRandomValues(new Uint32Array(7)); for (const n of r) s += AL[n % AL.length]; s += check(s); return "DL-" + s.slice(0, 4) + "-" + s.slice(4); };
+  const $ = (q) => document.querySelector(q);
+  if (!$("#su-1")) return;
+  let kind = "design", data = null;
+  const store = { get() { try { return JSON.parse(localStorage.getItem("dl_signup") || "null"); } catch (e) { return null; } }, set(v) { try { localStorage.setItem("dl_signup", JSON.stringify(v)); } catch (e) {} } };
+  const step = (n) => {
+    ["1", "2", "3"].forEach((k) => { $("#su-" + k).hidden = k !== String(n); });
+    document.querySelectorAll(".su-steps li").forEach((li) => li.classList.toggle("on", li.dataset.st === String(n)));
+  };
+  const showCode = (d) => {
+    $("#su-code").textContent = d.code;
+    $("#su-who").textContent = d.name + " · " + d.firm + " · " + (d.kind === "vendor" ? "Vendor / maker" : "Architect / interior designer");
+    $("#su-team").textContent = d.kind === "vendor" ? "Vendor team" : "Design team";
+    $("#su-uid-show").textContent = d.uid;
+    step(3);
+  };
+  const saved = store.get(); if (saved && saved.code) $("#su-again").hidden = false;
+  $("#su-again").addEventListener("click", () => { const d = store.get(); if (d) { showCode(d); $("#signup").scrollIntoView({ behavior: "smooth" }); } });
+  document.querySelectorAll(".su-seg button").forEach((b) => b.addEventListener("click", () => {
+    kind = b.dataset.kind;
+    document.querySelectorAll(".su-seg button").forEach((x) => x.classList.toggle("on", x === b));
+    $("#su-firm-l").textContent = kind === "vendor" ? "Company name" : "Firm name";
+  }));
+  $("#su-1").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (id) => $("#" + id).value.trim();
+    const d = { kind, firm: v("su-firm"), name: v("su-name"), city: v("su-city"), phone: v("su-phone"), email: v("su-email"), uid: v("su-uid") };
+    let err = "";
+    if (!d.firm || !d.name || !d.city) err = "Please fill in the firm, your name and city.";
+    else if (d.phone.replace(/\D/g, "").length < 10) err = "Please enter a 10-digit phone number.";
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) err = "Please enter a valid email.";
+    else if (!/^[A-Za-z0-9._-]{3,30}$/.test(d.uid)) err = "User ID: 3–30 letters or numbers, no spaces.";
+    $("#su-err").textContent = err;
+    if (err) return;
+    data = d; step(2);
+  });
+  document.querySelectorAll(".su-back").forEach((b) => b.addEventListener("click", () => step(b.dataset.to)));
+  $("#su-next2").addEventListener("click", () => {
+    if (!data) return step(1);
+    data.code = makeCode(); data.time = new Date().toISOString();
+    store.set(data); $("#su-again").hidden = false; showCode(data);
+  });
+  $("#su-copy").addEventListener("click", async () => { try { await navigator.clipboard.writeText($("#su-code").textContent); $("#su-copy .m-btn__label").textContent = "Copied"; } catch (e) {} });
+})();
 </script>
 </body>
 </html>
